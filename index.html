@@ -20,8 +20,8 @@
     <link rel="stylesheet" href="./styles.css?v=8" />
     <link rel="stylesheet" href="./narrative.css?v=10" />
     <link rel="stylesheet" href="./story.css?v=10" />
-    <link rel="stylesheet" href="./studio.css?v=11" />
-    <script type="module" src="./script.js?v=11"></script>
+    <link rel="stylesheet" href="./studio.css?v=16" />
+    <script type="module" src="./script.js?v=12"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">К содержанию</a>
@@ -32,7 +32,7 @@
       <span class="header-caption">AR-направление<br />агентства EVT</span>
       <nav aria-label="Основная навигация">
         <a href="#playground">Примеры</a><a href="#process">Как работаем</a
-        ><a href="#formats">Услуги</a>
+        >
       </nav>
       <button class="header-brief" data-brief>Обсудить проект</button>
       <button
@@ -51,7 +51,7 @@
       hidden
     >
       <a href="#playground">Примеры</a><a href="#process">Как работаем</a
-      ><a href="#formats">Услуги</a><button data-brief>Обсудить проект</button>
+      ><button data-brief>Обсудить проект</button>
     </nav>
     <main id="main">
       <section class="hero wrap" id="top" aria-labelledby="hero-title">
@@ -194,17 +194,26 @@
               <p>Готовый бриф не нужен. Достаточно описать, что вы хотите показать и где.</p>
               <figure class="build-figure" data-build-stage="idea" aria-label="Как объект меняется от эскиза до готовой сцены">
                 <div class="build-stage" aria-hidden="true">
-                  <span class="build-number">01</span>
-                  <div class="build-ground"></div>
-                  <div class="build-phone"><span></span><i></i></div>
-                  <svg class="build-wire" viewBox="0 0 240 400"><ellipse cx="120" cy="48" rx="76" ry="24"/><path d="M44 48V340C44 373 196 373 196 340V48M44 340C44 307 196 307 196 340M69 66V356M97 72V364M143 72V364M171 66V356"/><ellipse cx="120" cy="120" rx="76" ry="24"/><ellipse cx="120" cy="195" rx="76" ry="24"/><ellipse cx="120" cy="270" rx="76" ry="24"/></svg>
-                  <img class="build-product" src="./assets/cup.webp" width="200" height="279" loading="lazy" alt="" />
-                  <span class="build-anchor anchor-one">+</span><span class="build-anchor anchor-two">+</span><span class="build-anchor anchor-three">+</span>
+                  <div class="build-shadow"></div>
+                  <div class="build-object">
+                    <div class="build-scan"></div>
+                    <svg class="build-wire" viewBox="0 0 629 876">
+                      <defs><filter id="build-contour" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+                        <feColorMatrix type="saturate" values="0" result="gray" />
+                        <feConvolveMatrix in="gray" order="3" kernelMatrix="0 -1.5 0 -1.5 6 -1.5 0 -1.5 0" preserveAlpha="true" result="edges" />
+                        <feColorMatrix in="edges" type="matrix" values="0 0 0 0 .34 0 0 0 0 .22 0 0 0 0 .52 1.8 1.8 1.8 0 0" result="contour" />
+                        <feComposite in="contour" in2="SourceAlpha" operator="in" />
+                      </filter><filter id="build-outline" x="-5%" y="-5%" width="110%" height="110%"><feMorphology in="SourceAlpha" operator="dilate" radius="5" result="wide" /><feComposite in="wide" in2="SourceAlpha" operator="out" result="ring" /><feFlood flood-color="#6d31cd" /><feComposite in2="ring" operator="in" /></filter></defs>
+                      <image href="./assets/cup.webp" width="629" height="876" filter="url(#build-contour)" />
+                    </svg>
+                    <svg class="build-echo" viewBox="0 0 629 876"><image href="./assets/cup.webp" width="629" height="876" filter="url(#build-outline)" /></svg>
+                    <svg class="build-echo" viewBox="0 0 629 876"><image href="./assets/cup.webp" width="629" height="876" filter="url(#build-outline)" /></svg>
+                    <img class="build-product" src="./assets/cup.webp" width="200" height="279" loading="lazy" alt="" />
+                  </div>
                 </div>
                 <div class="build-choices" role="group" aria-label="Показать этап создания объекта">
                   <button data-build-choice="idea" aria-pressed="true">Эскиз</button><button data-build-choice="prototype" aria-pressed="false">Прототип</button><button data-build-choice="launch" aria-pressed="false">Запуск</button>
                 </div>
-                <div class="build-progress" aria-hidden="true"><span></span></div>
               </figure>
             </div>
             <ol class="process-steps">
@@ -215,103 +224,32 @@
           </div>
         </div>
       </section>
-      <section
-        class="formats section-space"
-        id="formats"
-        aria-labelledby="formats-title"
-      >
-        <div class="wrap">
-          <div class="formats-heading">
-            <h2 id="formats-title">Что можно<br />заказать</h2>
-            <p>
-              Сроки и стоимость зависят от количества сцен, моделей и сложности взаимодействий.
-              Обсудим задачу и составим смету.
-            </p>
-          </div>
-          <div class="format-list">
-            <article class="format-row">
-              <div class="format-art art-scale">
-                <button class="scale-toy" aria-label="Изменить масштаб объекта" aria-pressed="false">
-                  <span class="toy-orbit" aria-hidden="true"></span><span class="toy-float scale-model"><img src="./assets/cup.webp" width="170" height="237" loading="lazy" alt="Фиолетовая банка" /></span>
-                  <span class="toy-instruction">Увеличить объект <span aria-hidden="true">↗</span></span>
-                </button>
-              </div>
-              <div class="format-name">
-                <h3>Одна AR-сцена</h3>
-              </div>
-              <p>
-                Объект на локации или упаковке. Подготовим модель и анимацию,
-                настроим сцену и проверим её на телефоне.
-              </p>
-              <button
-                data-brief
-                data-format="Одна AR-сцена"
-                aria-label="Обсудить формат Одна AR-сцена"
-              >
-                Обсудить
-              </button>
-            </article>
-            <article class="format-row">
-              <div class="format-art art-route">
-                <button class="route-toy" aria-label="Показать маршрут между AR-точками" aria-pressed="false">
-                  <svg class="toy-route-line" viewBox="0 0 400 280" aria-hidden="true"><path pathLength="1" d="M75 175Q145 245 195 130T325 115"/></svg>
-                  <span class="route-pin route-pin-one toy-float"><img src="./assets/ar-point.webp" width="100" height="100" loading="lazy" alt="" /></span>
-                  <span class="route-pin route-pin-two toy-float"><img src="./assets/ar-point.webp" width="100" height="100" loading="lazy" alt="" /></span>
-                  <span class="route-pin route-pin-three toy-float"><img src="./assets/ar-point.webp" width="100" height="100" loading="lazy" alt="" /></span>
-                  <span class="toy-instruction">Соединить точки <span aria-hidden="true">↗</span></span>
-                </button>
-              </div>
-              <div class="format-name">
-                <h3>Несколько AR-точек</h3>
-              </div>
-              <p>
-                Несколько связанных сцен для события, выставки или городского
-                маршрута. Подготовим объекты для каждой точки и свяжем сцены между собой.
-              </p>
-              <button
-                data-brief
-                data-format="Несколько AR-точек"
-                aria-label="Обсудить формат Несколько AR-точек"
-              >
-                Обсудить
-              </button>
-            </article>
-            <article class="format-row">
-              <div class="format-art art-collection" role="group" aria-label="Пример сбора AR-предметов">
-                <div class="collection-toys">
-                  <button class="collect-toy collect-cup toy-float" data-toy-collect="cup" aria-label="Собрать банку" aria-pressed="false"><img src="./assets/cup.webp" width="90" height="125" loading="lazy" alt="" /><span aria-hidden="true">✓</span></button>
-                  <button class="collect-toy collect-camera toy-float" data-toy-collect="camera" aria-label="Собрать камеру" aria-pressed="false"><img src="./assets/camera.webp" width="110" height="110" loading="lazy" alt="" /><span aria-hidden="true">✓</span></button>
-                  <button class="collect-toy collect-pin toy-float" data-toy-collect="pin" aria-label="Собрать указатель" aria-pressed="false"><img src="./assets/pin.webp" width="95" height="95" loading="lazy" alt="" /><span aria-hidden="true">✓</span></button>
-                </div>
-                <div class="collection-bottom"><span class="toy-count" role="status">Соберите 3 предмета</span><button class="toy-reset" disabled>Сбросить</button></div>
-              </div>
-              <div class="format-name">
-                <h3>AR-игра</h3>
-              </div>
-              <p>
-                Поиск предметов, задания и сбор коллекции. Придумаем правила
-                и проверим игру на прототипе до полной разработки.
-              </p>
-              <button
-                data-brief
-                data-format="AR-игра"
-                aria-label="Обсудить формат AR-игра"
-              >
-                Обсудить
-              </button>
-            </article>
-          </div>
-          <div class="format-note">
-            <span>Свою 3D-модель тоже можно использовать.</span
-            ><button
-              class="text-link"
-              data-brief
-              data-format="Есть своя 3D-модель"
-            >
-              Обсудить размещение
-            </button>
-          </div>
+      <section class="offer wrap" id="formats" aria-labelledby="formats-title">
+        <div class="offer-heading">
+          <h2 id="formats-title">Что можно<br />заказать</h2>
+          <p>Сроки и стоимость зависят от количества сцен, моделей и сложности взаимодействий. Обсудим задачу и составим смету.</p>
         </div>
+        <div class="offer-list">
+            <article class="offer-card">
+              <span class="offer-number">01</span>
+              <h3>Одна AR-сцена</h3>
+              <p>Объект на локации или упаковке. Подготовим модель и анимацию, настроим сцену и проверим её на телефоне.</p>
+              <button data-brief data-format="Одна AR-сцена" aria-label="Обсудить формат Одна AR-сцена">Обсудить <span aria-hidden="true">→</span></button>
+            </article>
+            <article class="offer-card">
+              <span class="offer-number">02</span>
+              <h3>Несколько AR-точек</h3>
+              <p>Несколько связанных сцен для события, выставки или городского маршрута. Подготовим объекты для каждой точки и свяжем сцены между собой.</p>
+              <button data-brief data-format="Несколько AR-точек" aria-label="Обсудить формат Несколько AR-точек">Обсудить <span aria-hidden="true">→</span></button>
+            </article>
+            <article class="offer-card">
+              <span class="offer-number">03</span>
+              <h3>AR-игра</h3>
+              <p>Поиск предметов, задания и сбор коллекции. Придумаем правила и проверим игру на прототипе до полной разработки.</p>
+              <button data-brief data-format="AR-игра" aria-label="Обсудить формат AR-игра">Обсудить <span aria-hidden="true">→</span></button>
+            </article>
+        </div>
+        <p class="offer-note">Свою 3D-модель тоже можно использовать. <button data-brief data-format="Есть своя 3D-модель">Обсудить размещение</button></p>
       </section>
       <section class="faq wrap section-space" aria-labelledby="faq-title">
         <div class="faq-intro">
