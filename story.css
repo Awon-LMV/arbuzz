@@ -1,0 +1,184 @@
+/* A single continuous composition, following a visitor from place to AR scene. */
+.ar-story { padding-block: 68px 95px; }
+.story-panel {
+  max-width: 1120px;
+  margin-inline: auto;
+  border-radius: 34px;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #222124;
+  color: #f2f1ec;
+}
+.story-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(#b4afbc0a 1px, transparent 1px), linear-gradient(90deg, #b4afbc0a 1px, transparent 1px);
+  background-size: 84px 84px;
+  pointer-events: none;
+}
+.story-heading {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 36px 55px 0;
+  align-items: center;
+}
+.story-heading > span { font-size: 19px; font-weight: 700; letter-spacing: -.05em; }
+.story-heading > p { font-size: 12px; color: #bcb8c1; line-height: 1.5; }
+.story-track {
+  position: absolute;
+  inset: 40px -5% 180px;
+  width: 110%;
+  height: calc(100% - 220px);
+  stroke: #b2a5c0;
+  stroke-width: 1.6;
+  stroke-dasharray: 4 8;
+  opacity: .35;
+  z-index: -1;
+  pointer-events: none;
+}
+.story-scene {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  position: relative;
+  min-height: 570px;
+  padding-inline: 70px;
+  gap: 55px;
+}
+.story-visual { min-width: 0; position: relative; height: 540px; }
+.story-phone {
+  position: absolute;
+  object-fit: contain;
+  width: 235px;
+  height: auto;
+  max-height: 510px;
+  filter: drop-shadow(0 20px 15px #00000040);
+}
+.phone-place { top: 22px; left: 12%; transform: rotate(-5deg); }
+.phone-camera { top: 5px; left: 23%; width: 235px; transform: rotate(7deg); }
+.phone-collection { top: 10px; left: 19%; transform: rotate(-6deg); width: 230px; }
+.story-copy { position: relative; z-index: 2; padding-bottom: 10px; }
+.story-copy h2, .story-copy h3 {
+  font-size: clamp(34px, 3.8vw, 57px);
+  line-height: 1.09;
+  font-weight: 500;
+  letter-spacing: -.045em;
+  margin: 0;
+}
+.story-copy > p { font-size: 15px; line-height: 1.75; max-width: 365px; margin-top: 25px; color: #c0bbc7; }
+.story-copy > p + p { margin-top: 15px; }
+.story-prop { position: absolute; height: auto; object-fit: contain; pointer-events: none; }
+.story-pin { width: 165px; right: -3%; top: 290px; transform: rotate(12deg); }
+.story-map-caption { position: absolute; bottom: 25px; right: -4px; font-size: 10px; line-height: 1.6; color: #aaa1b4; }
+.story-camera { margin-top: 12px; }
+.story-camera .story-copy { padding-left: 15px; }
+.story-camera-prop { width: 175px; right: -16%; top: 255px; transform: rotate(-13deg); }
+.story-cylinder { width: 105px; left: -12%; top: 35px; transform: rotate(-24deg); }
+.story-collection { margin-top: 10px; }
+.story-cup { width: 105px; left: -5%; top: 275px; transform: rotate(-14deg); }
+.story-small-pin { width: 95px; right: -8%; top: 75px; transform: rotate(20deg); }
+.story-asterisk { position: absolute; font-size: 85px; line-height: 1; color: #c9ff8a; right: -1%; bottom: 85px; transform: rotate(-12deg); }
+.story-ending { position: relative; z-index: 2; margin: 15px 55px 0; padding: 35px 0 32px; border-top: 1px solid #59535f; }
+.story-ending > div { display: flex; justify-content: space-between; gap: 35px; align-items: center; }
+.story-ending > div > p { font-size: 21px; line-height: 1.5; letter-spacing: -.02em; }
+.story-ending .button { padding: 15px 22px; min-height: 55px; flex: none; }
+.story-source { color: #a7a0af; font-size: 11px; line-height: 1.7; max-width: 680px; margin-top: 32px; }
+
+@media (min-width: 1600px) {
+  .story-panel { max-width: 1300px; }
+  .story-scene { min-height: 640px; padding-inline: 100px; gap: 90px; }
+  .story-visual { height: 590px; }
+  .story-phone { max-height: 560px; width: 255px; }
+  .story-copy h2, .story-copy h3 { font-size: 61px; }
+  .story-copy > p { font-size: 16px; max-width: 410px; }
+  .story-camera-prop { right: -5%; top: 290px; }
+}
+@media (max-width: 1100px) {
+  .story-scene { padding-inline: 45px; gap: 35px; min-height: 540px; }
+  .story-visual { height: 510px; }
+  .story-phone { width: 210px; max-height: 480px; }
+  .story-pin { width: 135px; right: -10%; }
+  .story-copy h2, .story-copy h3 { font-size: 42px; }
+  .story-copy > p { font-size: 14px; }
+  .story-camera-prop { width: 150px; right: -12%; }
+  .story-asterisk { font-size: 70px; right: -8%; }
+}
+@media (max-width: 800px) and (min-width: 561px) {
+  .ar-story { padding-block: 45px 65px; }
+  .story-panel { border-radius: 26px; }
+  .story-heading { padding: 28px 30px 10px; }
+  .story-heading > p { font-size: 10px; }
+  .story-scene { padding-inline: 30px; gap: 30px; min-height: 460px; }
+  .story-visual { height: 440px; }
+  .story-phone { width: 175px; max-height: 405px; }
+  .phone-place { left: 4%; }
+  .phone-camera { left: 17%; }
+  .phone-collection { left: 10%; }
+  .story-copy h2, .story-copy h3 { font-size: 34px; }
+  .story-copy > p { font-size: 13px; margin-top: 20px; }
+  .story-pin { width: 110px; right: -5%; top: 260px; }
+  .story-map-caption { font-size: 9px; bottom: 6px; }
+  .story-camera-prop { width: 120px; right: -12%; top: 250px; }
+  .story-cylinder { width: 75px; left: -10%; }
+  .story-cup { width: 75px; left: -9%; top: 240px; }
+  .story-small-pin { width: 70px; right: -10%; }
+  .story-asterisk { font-size: 60px; right: -6%; bottom: 60px; }
+  .story-ending { margin-inline: 30px; }
+  .story-ending > div > p { font-size: 17px; }
+  .story-ending .button { font-size: 12px; padding-inline: 18px; gap: 15px; }
+}
+@media (max-width: 560px) {
+  .ar-story { padding-block: 35px 50px; }
+  .story-panel { border-radius: 22px; }
+  .story-heading { padding: 25px 25px 0; display: block; }
+  .story-heading > span { font-size: 18px; }
+  .story-heading > p { font-size: 10px; margin-top: 9px; }
+  .story-track { inset: 60px -65% 170px; width: 230%; height: calc(100% - 230px); opacity: .22; }
+  .story-scene { display: flex; flex-direction: column; align-items: stretch; padding-inline: 25px; gap: 0; min-height: 0; }
+  .story-copy { order: 0; padding: 35px 0 0; }
+  .story-copy h2, .story-copy h3 { font-size: clamp(30px, 8.7vw, 45px); line-height: 1.1; }
+  .story-copy > p { font-size: 14px; margin-top: 20px; max-width: 100%; line-height: 1.7; }
+  .story-copy > p + p { margin-top: 12px; }
+  .story-visual { order: 1; height: 440px; margin-top: 18px; }
+  .story-phone { width: 175px; max-height: 400px; }
+  .phone-place { left: 8%; top: 18px; }
+  .phone-camera { left: 25%; top: 15px; }
+  .phone-collection { left: 17%; top: 20px; }
+  .story-pin { width: 120px; right: -10px; top: 230px; }
+  .story-map-caption { right: 0; bottom: 18px; font-size: 9px; }
+  .story-camera { margin-top: 0; }
+  .story-camera .story-copy { padding-left: 0; }
+  .story-camera-prop { width: 130px; right: -20px; top: 240px; }
+  .story-cylinder { width: 80px; left: -10px; top: 40px; }
+  .story-collection { margin-top: 0; }
+  .story-cup { width: 80px; left: -10px; top: 260px; }
+  .story-small-pin { width: 70px; right: -12px; top: 30px; }
+  .story-asterisk { font-size: 65px; right: -2px; bottom: 60px; }
+  .story-ending { margin: 5px 25px 0; padding-top: 28px; }
+  .story-ending > div { flex-direction: column; align-items: stretch; gap: 24px; }
+  .story-ending > div > p { font-size: 19px; }
+  .story-ending > div > p br { display: none; }
+  .story-ending .button { font-size: 13px; justify-content: space-between; min-height: 54px; }
+  .story-source { font-size: 10px; margin-top: 26px; }
+}
+@media (max-width: 360px) {
+  .story-heading { padding-inline: 22px; }
+  .story-scene { padding-inline: 22px; }
+  .story-copy h2, .story-copy h3 { font-size: 29px; }
+  .story-copy > p { font-size: 13px; }
+  .story-phone { width: 155px; max-height: 360px; }
+  .story-visual { height: 400px; }
+  .story-pin { width: 105px; top: 210px; }
+  .story-camera-prop { width: 115px; right: -20px; top: 230px; }
+  .story-cylinder { width: 65px; }
+  .story-cup { width: 68px; top: 240px; }
+  .story-small-pin { width: 60px; }
+  .story-asterisk { font-size: 53px; }
+  .story-ending { margin-inline: 22px; }
+}

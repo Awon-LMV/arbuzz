@@ -1,5 +1,4 @@
 import { spatialField } from "./scene.js";
-import { setupExperiments } from "./experiments.js";
 const $ = (s) => document.querySelector(s),
   $$ = (s) => [...document.querySelectorAll(s)];
 const reduced = matchMedia("(prefers-reduced-motion: reduce)");
@@ -42,68 +41,6 @@ $$("[data-object]").forEach((button) =>
     $(".hero-product").setAttribute("aria-label", heroObjects[kind].alt);
   }),
 );
-const experiments = setupExperiments();
-const scenarios = {
-  city: {
-    premise: "А что, если продукт станет выше дома?",
-    title: "Привычный объект. Непривычный масштаб.",
-    copy: "Виртуальному объекту не нужен пьедестал. Через камеру он появляется рядом с привычными зданиями — и меняет ощущение места. Сравните три размера одной банки.",
-    action: "Действие зрителя: рассмотреть со всех сторон",
-    index: "01 / 03",
-    context: "Объект в городе",
-  },
-  package: {
-    premise: "А что, если этикетке станет тесно в печати?",
-    title: "История выходит за края упаковки.",
-    copy: "Снаружи — знакомая этикетка. Через камеру — анимация, персонаж или целая сцена. Упаковка становится входом в историю. Нажмите на этикетку и откройте её продолжение.",
-    action: "Действие зрителя: открыть цифровое продолжение",
-    index: "02 / 03",
-    context: "Живая упаковка",
-  },
-  quest: {
-    premise: "А что, если у прогулки появится сюжет?",
-    title: "Ещё одна точка. Ещё одна находка.",
-    copy: "Локации становятся главами одной игры. В каждой ждёт предмет или задание, а коллекция даёт повод идти дальше. Здесь можно собрать три части названия ARBUZZ.",
-    action: "Действие зрителя: пройти маршрут и собрать коллекцию",
-    index: "03 / 03",
-    context: "Городская игра",
-  },
-};
-function selectScenario(kind, focus = false) {
-  const data = scenarios[kind];
-  const tabs = $$("[data-scenario]");
-  tabs.forEach((tab) => {
-    const active = tab.dataset.scenario === kind;
-    tab.setAttribute("aria-selected", String(active));
-    tab.tabIndex = active ? 0 : -1;
-    if (active && focus) tab.focus();
-  });
-  $("#scenario-title").textContent = data.title;
-  $("#scenario-premise").textContent = data.premise;
-  $("#scenario-copy").textContent = data.copy;
-  $("#experience-action").textContent = data.action;
-  $("#experience-index").textContent = data.index;
-  $("#scenario-panel").setAttribute("aria-labelledby", `tab-${kind}`);
-  $("#scenario-panel [data-brief]").dataset.format = data.context;
-  experiments.select(kind);
-}
-$$("[data-scenario]").forEach((tab) => {
-  tab.addEventListener("click", () => selectScenario(tab.dataset.scenario));
-  tab.addEventListener("keydown", (e) => {
-    const tabs = $$("[data-scenario]"),
-      index = tabs.indexOf(tab);
-    let next = index;
-    if (["ArrowRight", "ArrowDown"].includes(e.key))
-      next = (index + 1) % tabs.length;
-    else if (["ArrowLeft", "ArrowUp"].includes(e.key))
-      next = (index - 1 + tabs.length) % tabs.length;
-    else if (e.key === "Home") next = 0;
-    else if (e.key === "End") next = tabs.length - 1;
-    else return;
-    e.preventDefault();
-    selectScenario(tabs[next].dataset.scenario, true);
-  });
-});
 const menu = $("#mobile-menu"),
   menuButton = $(".menu-toggle");
 function closeMenu() {

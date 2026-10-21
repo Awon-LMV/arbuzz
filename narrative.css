@@ -16,82 +16,7 @@ html { scroll-padding-top: 28px; }
   line-height: 1.5;
 }
 .chapter-line > span:last-child { color: #726f68; }
-.idea { padding-block: 86px 105px; }
-.idea-layout { grid-template-columns: 1.15fr 1fr; gap: 10%; }
-.idea h2 {
-  font-size: clamp(42px, 5.3vw, 82px);
-  line-height: 1.07;
-  letter-spacing: -.05em;
-}
-.idea h2 > span { color: var(--violet); }
-.idea-aside > p { max-width: 470px; }
-.idea-aside > p:first-of-type { font-size: 22px; line-height: 1.5; color: #252429; }
-.idea-aside > p:last-of-type { padding-top: 23px; border-top: 1px solid var(--line); }
-.playground { background: #e9e2f1; padding-block: 38px 64px; }
-.playground .chapter-line { border-color: #c9bed5; }
-.playground .chapter-line > span:last-child { color: #6c5d7c; }
-.playground-heading { margin-bottom: 45px; align-items: flex-end; }
-.playground-heading h2 { font-size: clamp(42px, 5.5vw, 84px); line-height: 1.06; font-weight: 500; }
-.playground-heading h2 > em { color: #6e37df; }
-.playground-heading > p { max-width: 345px; font-size: 15px; }
-.playground-layout { grid-template-columns: 300px minmax(0, 1fr); gap: 40px; align-items: start; }
-.scenario-tabs > button { gap: 15px; font-size: 15px; min-height: 62px; }
-.scenario-tabs > button > .scenario-number { font-size: 11px; min-width: 16px; color: #746382; }
-.scenario-tabs > button > svg { width: 17px; height: 17px; opacity: 0; margin-left: auto; }
-.scenario-tabs > button[aria-selected="true"] > svg { opacity: 1; }
-.scenario-tabs > button[aria-selected="true"] > .scenario-number { color: var(--violet); }
-.scenario-description { padding-top: 32px; }
-.scenario-description > .scenario-premise {
-  margin: 0 0 13px;
-  color: #6a527e;
-  font-size: 12px;
-  line-height: 1.6;
-}
-.scenario-description h3 { font-size: 28px; line-height: 1.16; letter-spacing: -.035em; }
-.scenario-description > p { font-size: 14px; line-height: 1.7; margin-top: 18px; }
-.scenario-description .text-link { font-size: 13px; font-weight: 500; }
-.experience-stage {
-  background: #f6f4f8;
-  border: 1px solid #cfc5d9;
-  border-radius: 16px;
-  overflow: hidden;
-  isolation: isolate;
-}
-.experience-topline, .experience-bottomline {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  padding: 20px 25px;
-  font-size: 11px;
-  line-height: 1.5;
-  color: #6a5e76;
-}
-.experience-topline > span:first-child { display: flex; align-items: center; gap: 8px; }
-.experience-topline i { width: 6px; height: 6px; background: #8f6bbc; border-radius: 50%; }
-.experience-topline > span:last-child { font-variant-numeric: tabular-nums; }
-.experience-bottomline { flex-direction: column; gap: 5px; border-top: 1px solid #ddd5e5; padding-block: 16px; }
-.experience-bottomline > span:first-child { color: #42334e; font-size: 12px; }
-.experience-bottomline > span:last-child { font-size: 10px; color: #72647c; }
-.experiment { height: 475px; padding: 0 18px 15px; }
-.scale-visual { height: 355px; }
-.scale-ground { stroke: #b5a8c1; }
-.scale-facade { stroke: #b2a2bf; stroke-width: 1.25; }
-.scale-facade .city-context { opacity: .55; }
-.scale-person { fill: #6b5a7d; }
-.experiment-controls { flex-wrap: wrap; gap: 0 22px; margin-top: 0; }
-.control-prompt { width: 100%; text-align: center; font-size: 10px; color: #756482; margin-bottom: 3px; }
-.experiment-controls button { font-size: 12px; min-height: 40px; }
-.experiment-note { margin-top: 12px; min-height: 32px; font-size: 11px; padding-inline: 10px; }
-.label-visual { height: 385px; }
-.label-trigger { height: 370px; }
-.printed-label { top: 14px; height: 275px; width: 220px; }
-.label-brand { font-size: 23px; }
-.label-animation > span:first-child { font-size: clamp(72px, 8.5vw, 132px); }
-.route-visual { height: 320px; margin-bottom: 24px; }
-.entry-flow { padding-block: 85px 92px; grid-template-columns: 1fr 1.5fr; }
 .eyebrow { display: block; font-size: 12px; line-height: 1.5; margin-bottom: 24px; color: #777168; }
-.entry-flow h2 { font-size: clamp(30px, 3.3vw, 48px); line-height: 1.15; letter-spacing: -.04em; }
-.entry-flow > div > p { max-width: 330px; }
 .process { margin-bottom: 85px; }
 .process-inner { padding: 36px 44px 44px; border-radius: 20px; background: #242027; color: #f2f0e9; }
 .process .chapter-line { border-color: #514957; margin-bottom: 52px; }
@@ -115,24 +40,10 @@ html { scroll-padding-top: 28px; }
 .contact .eyebrow { color: #444c32; margin-bottom: 30px; }
 .contact h2 { font-size: clamp(58px, 7.8vw, 120px); }
 
-@media (min-width: 1600px) {
-  .playground-layout { grid-template-columns: 340px minmax(0, 1fr); gap: 70px; }
-  .experiment { height: 535px; }
-  .scale-visual { height: 405px; }
-  .label-visual { height: 445px; }
-  .label-trigger { height: 415px; }
-  .printed-label { top: 28px; height: 300px; width: 240px; }
-  .route-visual { height: 370px; }
-}
 @media (max-width: 1100px) {
   .site-header { gap: 20px; }
   .site-header > nav { gap: 23px; }
   .header-caption { display: none; }
-  .playground-layout { grid-template-columns: 250px minmax(0, 1fr); gap: 30px; }
-  .scenario-description h3 { font-size: 25px; }
-  .experiment { height: 455px; }
-  .scale-visual { height: 325px; }
-  .experiment-controls { gap: 0 14px; }
   .process-inner { padding-inline: 32px; }
   .process-layout { gap: 6%; }
   .process-steps h3 { font-size: 19px; }
@@ -140,31 +51,6 @@ html { scroll-padding-top: 28px; }
 }
 @media (max-width: 800px) {
   .chapter-line { margin-bottom: 38px; font-size: 11px; }
-  .idea { padding-block: 65px 75px; }
-  .idea-layout { gap: 7%; grid-template-columns: 1fr 1fr; }
-  .idea h2 { font-size: 40px; }
-  .idea-aside > p:first-of-type { font-size: 18px; }
-  .idea-aside > p { font-size: 14px; }
-  .playground-heading { gap: 30px; }
-  .playground-heading h2 { font-size: 42px; }
-  .playground-heading > p { font-size: 13px; max-width: 240px; }
-  .playground-layout { grid-template-columns: 215px minmax(0, 1fr); gap: 25px; }
-  .scenario-tabs > button { font-size: 14px; gap: 12px; }
-  .scenario-description h3 { font-size: 23px; }
-  .scenario-description > p { font-size: 13px; }
-  .experience-topline, .experience-bottomline { padding-inline: 16px; }
-  .experiment { height: 425px; padding-inline: 8px; }
-  .scale-visual { height: 285px; }
-  .experiment-controls { gap: 0 10px; }
-  .experiment-controls button { font-size: 10px; }
-  .printed-label { width: 170px; height: 235px; top: 25px; padding: 17px; }
-  .label-visual, .label-trigger { height: 340px; }
-  .label-brand { font-size: 20px; }
-  .label-symbol { font-size: 85px; }
-  .label-animation > span:first-child { font-size: 73px; }
-  .route-visual { height: 255px; }
-  .route-collection { gap: 7px; }
-  .route-reset { font-size: 11px; }
   .process-layout { grid-template-columns: 1fr 1.15fr; gap: 6%; }
   .process h2 { font-size: 33px; }
   .process-steps > li { grid-template-columns: 22px 1fr; gap: 8px; }
@@ -181,47 +67,7 @@ html { scroll-padding-top: 28px; }
   .hero-bottom .button { font-size: 12px; gap: 18px; }
   .chapter-line { font-size: 10px; margin-bottom: 30px; padding-top: 15px; }
   .chapter-line > span:last-child { display: none; }
-  .idea { padding-block: 50px 55px; }
-  .idea-layout { grid-template-columns: 1fr; gap: 28px; }
-  .idea h2 { font-size: clamp(38px, 10.5vw, 58px); line-height: 1.08; }
-  .idea-aside > p { font-size: 14px; }
-  .idea-aside > p:first-of-type { font-size: 18px; }
-  .idea-aside > p:last-of-type { padding-top: 20px; }
-  .playground { padding-block: 28px 35px; }
-  .playground-heading { margin-bottom: 25px; }
-  .playground-heading h2 { font-size: clamp(34px, 9.4vw, 52px); }
-  .playground-heading > p { max-width: 340px; font-size: 14px; margin-top: 19px; }
-  .playground-layout { display: flex; gap: 25px; }
-  .scenario-tabs { gap: 17px; overflow: visible; }
-  .scenario-tabs > button { gap: 6px; font-size: 12px; }
-  .scenario-tabs > button > .scenario-number { font-size: 9px; min-width: 12px; }
-  .scenario-tabs > button > svg { display: none; }
-  .experience-stage { border-radius: 12px; }
-  .experience-topline { padding: 16px 17px 5px; font-size: 10px; }
-  .experience-bottomline { padding: 14px 17px; }
-  .experience-bottomline > span:first-child { font-size: 11px; }
-  .experience-bottomline > span:last-child { font-size: 9px; }
-  .experiment { height: 355px; padding: 0 8px 10px; }
-  .scale-visual { height: 235px; }
-  .experiment-controls { gap: 0 15px; }
-  .experiment-controls button { font-size: 11px; min-height: 40px; }
-  .experiment-note { font-size: 10px; margin-top: 9px; min-height: 32px; }
-  .printed-label { top: 17px; width: 160px; height: 220px; }
-  .label-visual, .label-trigger { height: 285px; }
-  .label-symbol { font-size: 79px; }
-  .label-print-bottom { font-size: 8px; }
-  .label-animation > span:first-child { font-size: 72px; }
-  .route-visual { height: 225px; margin-bottom: 20px; }
-  .route-collection { gap: 10px; }
-  .scenario-description { padding-top: 0; }
-  .scenario-description > .scenario-premise { font-size: 11px; margin-bottom: 10px; }
-  .scenario-description h3 { font-size: 27px; max-width: 360px; }
-  .scenario-description > p { font-size: 14px; margin-top: 14px; }
-  .scenario-description .text-link { margin-top: 16px; font-size: 13px; }
-  .entry-flow { padding-block: 53px 50px; }
   .eyebrow { font-size: 11px; margin-bottom: 17px; }
-  .entry-flow h2 { font-size: 34px; }
-  .entry-flow h2 br { display: initial; }
   .process { margin-bottom: 50px; }
   .process-inner { border-radius: 14px; padding: 25px 23px 32px; }
   .process .chapter-line { margin-bottom: 32px; }
