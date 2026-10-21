@@ -17,9 +17,10 @@
       rel="stylesheet"
     />
     <link rel="preload" href="./assets/cup.webp" as="image" />
-    <link rel="stylesheet" href="./styles.css?v=7" />
-    <link rel="stylesheet" href="./experiments.css?v=7" />
-    <script type="module" src="./script.js?v=7"></script>
+    <link rel="stylesheet" href="./styles.css?v=8" />
+    <link rel="stylesheet" href="./experiments.css?v=8" />
+    <link rel="stylesheet" href="./narrative.css?v=8" />
+    <script type="module" src="./script.js?v=8"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">К содержанию</a>
@@ -29,7 +30,7 @@
       >
       <span class="header-caption">AR-направление<br />агентства EVT</span>
       <nav aria-label="Основная навигация">
-        <a href="#idea">Об ARBUZZ</a><a href="#playground">Попробовать</a
+        <a href="#playground">Что можно сделать</a><a href="#process">Как работаем</a
         ><a href="#formats">Форматы</a>
       </nav>
       <button class="header-brief" data-brief>Обсудить проект</button>
@@ -48,7 +49,7 @@
       aria-label="Мобильная навигация"
       hidden
     >
-      <a href="#idea">Об ARBUZZ</a><a href="#playground">Попробовать</a
+      <a href="#playground">Что можно сделать</a><a href="#process">Как работаем</a
       ><a href="#formats">Форматы</a><button data-brief>Обсудить проект</button>
     </nav>
     <main id="main">
@@ -114,9 +115,9 @@
           </div>
           <div class="hero-bottom">
             <div>
-              <p>Можно прийти с идеей<br />или готовой 3D-моделью.</p>
+              <p>Создаём AR-проекты для города, упаковки и событий.<br /> От первой идеи до сцены на экране телефона.</p>
               <a class="button button-mint" href="#playground"
-                >Посмотреть примеры
+                >Посмотреть, что возможно
                 <span
                   ><svg><use href="#arrow-down" /></svg></span
               ></a>
@@ -141,23 +142,23 @@
         </div>
       </section>
       <section class="idea wrap section-space" id="idea">
+        <div class="chapter-line"><span>01 / Другой взгляд на привычное</span><span>Идея → действие → впечатление</span></div>
         <div class="idea-layout">
-          <h2>3D-объекты<br />в реальном городе.</h2>
+          <h2>Место знакомое.<br />А дальше —<br /><span>что-то ваше.</span></h2>
           <div class="idea-aside">
             <p>
-              Банка напитка над площадью. Персонаж у входа в магазин. Игра,
-              которая ведёт по району.
+              На площади появляется гигантская банка. С этикетки сходит персонаж.
+              Прогулка превращается в поиск сокровищ.
             </p>
             <p>
-              В AR можно менять масштаб и добавлять то, чего нет в физическом
-              мире. Для зрителя всё происходит на экране телефона — на фоне
-              настоящего города.
+              Место и предметы остаются настоящими. Камера телефона добавляет
+              к ним цифровой слой — объект, историю или игру, в которой можно
+              участвовать.
             </p>
             <p>
-              ARBUZZ — AR-направление агентства EVT. Помогаем креативным
-              командам и авторам идей создавать AR-проекты: готовим контент и
-              настраиваем сцены. Можно прийти с готовой моделью или обсудить её
-              создание.
+              Мы — ARBUZZ, AR-направление EVT. Вместе с авторами идей и
+              креативными командами придумываем такие взаимодействия и доводим
+              их до запуска. Можно начать с наброска или готовой 3D-модели.
             </p>
           </div>
         </div>
@@ -168,11 +169,12 @@
         aria-labelledby="playground-title"
       >
         <div class="wrap">
+          <div class="chapter-line"><span>02 / Попробуйте идею в действии</span><span>Три интерактивных эскиза</span></div>
           <div class="playground-heading">
-            <h2 id="playground-title">Три механики AR</h2>
+            <h2 id="playground-title">Увидеть. Удивиться.<br /><em>Включиться.</em></h2>
             <p>
-              Здесь — интерактивные эскизы. Локацию, контент и сценарий
-              взаимодействия подбираем под вашу идею.
+              У AR-проекта есть не только объект, но и действие. Меняйте
+              масштаб, оживите этикетку или соберите коллекцию.
             </p>
           </div>
           <div class="playground-layout">
@@ -189,7 +191,7 @@
                   aria-selected="true"
                   data-scenario="city"
                 >
-                  В городе</button
+                  <span class="scenario-number" aria-hidden="true">01</span>В городе<svg aria-hidden="true"><use href="#arrow-up" /></svg></button
                 ><button
                   role="tab"
                   id="tab-package"
@@ -198,7 +200,7 @@
                   tabindex="-1"
                   data-scenario="package"
                 >
-                  На упаковке</button
+                  <span class="scenario-number" aria-hidden="true">02</span>На упаковке<svg aria-hidden="true"><use href="#arrow-up" /></svg></button
                 ><button
                   role="tab"
                   id="tab-quest"
@@ -207,7 +209,7 @@
                   tabindex="-1"
                   data-scenario="quest"
                 >
-                  Игра
+                  <span class="scenario-number" aria-hidden="true">03</span>Игра<svg aria-hidden="true"><use href="#arrow-up" /></svg>
                 </button>
               </div>
               <div
@@ -217,22 +219,24 @@
                 aria-labelledby="tab-city"
                 aria-live="polite"
               >
-                <h3 id="scenario-title">Объект на локации</h3>
+                <p class="scenario-premise" id="scenario-premise">А что, если продукт станет выше дома?</p>
+                <h3 id="scenario-title">Привычный объект. Непривычный масштаб.</h3>
                 <p id="scenario-copy">
-                  Готовую 3D-модель можно привязать к выбранной локации. Через
-                  камеру телефона зритель видит её на фоне города. На схеме
-                  можно сравнить масштаб объекта.
+                  Виртуальному объекту не нужен пьедестал. Через камеру он
+                  появляется рядом с привычными зданиями — и меняет ощущение
+                  места. Сравните три размера одной банки.
                 </p>
                 <button
                   class="text-link"
                   data-brief
                   data-format="Объект в городе"
                 >
-                  Хочу похожий проект
+                  Обсудить такую идею ↗
                 </button>
               </div>
             </div>
             <div class="experience-stage" aria-label="Интерактивные примеры AR">
+              <div class="experience-topline"><span><i aria-hidden="true"></i>Идея в действии</span><span id="experience-index">01 / 03</span></div>
               <div
                 class="experiment scale-experiment"
                 data-experiment="city"
@@ -246,6 +250,7 @@
                 >
                   <path class="scale-ground" d="M50 435H850" />
                   <g class="scale-facade" aria-hidden="true">
+                    <path class="city-context" d="M50 435V270H125V435M42 270H133M65 290H83V320H65ZM96 290H114V320H96ZM65 340H83V370H65ZM96 340H114V370H96ZM65 390H114V435M240 435V212H340V435M230 212H350M254 230H275V267H254ZM299 230H320V267H299ZM254 287H275V324H254ZM299 287H320V324H299ZM254 344H275V381H254ZM299 344H320V381H299ZM278 398H302V435" />
                     <path
                       d="M660 435V94H817V435M648 94H828M678 112H800M678 191H800M678 270H800M678 349H800"
                     />
@@ -281,6 +286,7 @@
                   role="group"
                   aria-label="Размер продукта"
                 >
+                  <span class="control-prompt">Измените масштаб</span>
                   <button data-scale-choice="small" aria-pressed="false">
                     Обычный
                   </button>
@@ -390,13 +396,15 @@
                   Нажмите на точки и соберите название ARBUZZ.
                 </p>
               </div>
+              <div class="experience-bottomline"><span id="experience-action">Действие зрителя: рассмотреть со всех сторон</span><span>Интерактивный эскиз. В AR сцена появляется через камеру телефона.</span></div>
             </div>
           </div>
         </div>
       </section>
       <section class="entry-flow wrap" aria-labelledby="entry-title">
         <div>
-          <h2 id="entry-title">Как зритель <br />попадает в AR</h2>
+          <span class="eyebrow">Со стороны зрителя</span>
+          <h2 id="entry-title">Вход в историю —<br />через телефон.</h2>
           <p>
             Для WebAR достаточно браузера. Поддержку устройств и способ привязки
             проверяем на прототипе.
@@ -423,6 +431,23 @@
           </li>
         </ol>
       </section>
+      <section class="process wrap" id="process" aria-labelledby="process-title">
+        <div class="process-inner">
+          <div class="chapter-line"><span>03 / От замысла к запуску</span><span>Вместе с ARBUZZ</span></div>
+          <div class="process-layout">
+            <div class="process-intro">
+              <h2 id="process-title">«А что, если…»<br />Хорошее<br />начало проекта.</h2>
+              <p>Готовый бриф необязателен. Начнём с того, что вы хотите показать и что должен сделать зритель.</p>
+              <img src="./assets/camera.webp" width="320" height="320" loading="lazy" alt="" />
+            </div>
+            <ol class="process-steps">
+              <li><span class="process-number">01</span><div><h3>Превращаем идею в сценарий</h3><p>Выбираем место, объект и действие зрителя. Решаем, зачем здесь AR и как человек о нём узнает.</p><span class="process-output">На выходе — понятная концепция</span></div></li>
+              <li><span class="process-number">02</span><div><h3>Проверяем на прототипе</h3><p>Пробуем привязку, масштаб и взаимодействие на телефоне. Проверяем ограничения локации и устройств до полной разработки.</p><span class="process-output">На выходе — проверенная механика и объём работ</span></div></li>
+              <li><span class="process-number">03</span><div><h3>Готовим к встрече со зрителем</h3><p>Собираем контент, настраиваем сцену и точку входа. Проверяем весь путь: от ссылки до действия внутри AR.</p><span class="process-output">На выходе — AR-проект для запуска</span></div></li>
+            </ol>
+          </div>
+        </div>
+      </section>
       <section
         class="formats section-space"
         id="formats"
@@ -430,7 +455,7 @@
       >
         <div class="wrap">
           <div class="formats-heading">
-            <h2 id="formats-title">Что можно заказать</h2>
+            <h2 id="formats-title">Начать с одной сцены.<br />Или придумать целый мир.</h2>
             <p>
               Объём работ, сроки и стоимость зависят от контента и механики.
               Обсудим задачу и составим смету.
@@ -546,11 +571,12 @@
       </section>
       <section class="contact wrap" id="contact">
         <div class="contact-inner">
-          <h2>Обсудим<br />ваш проект.</h2>
+          <span class="eyebrow">Теперь ваша идея</span>
+          <h2>Что добавим<br />в реальность?</h2>
           <div class="contact-bottom">
             <p>
-              Напишите, что хотите сделать и где.<br />Если есть модель или
-              референс — покажите их в чате.
+              Расскажите задумку в паре предложений.<br /> Если есть модель или
+              референс — с них тоже можно начать.
             </p>
             <button class="button button-dark" data-brief>Описать проект</button
             ><a
