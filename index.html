@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f2f1ec" />
+    <meta
+      name="description"
+      content="ARBUZZ — AR-направление EVT. Создаём AR-проекты для брендов, событий и авторских идей. Можно прийти с замыслом или готовой 3D-моделью."
+    />
+    <title>ARBUZZ — реальность с вашим характером</title>
+    <link rel="icon" href="./assets/mark.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preload" href="./assets/cup.webp" as="image" />
+    <link rel="stylesheet" href="./styles.css?v=7" />
+    <link rel="stylesheet" href="./experiments.css?v=7" />
+    <script type="module" src="./script.js?v=7"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">К содержанию</a>
+    <header class="site-header wrap">
+      <a class="wordmark" href="#top" aria-label="ARBUZZ — на главную"
+        >ARBUZZ<span class="brand-asterisk" aria-hidden="true">✳</span></a
+      >
+      <span class="header-caption">AR-направление<br />агентства EVT</span>
+      <nav aria-label="Основная навигация">
+        <a href="#idea">Об ARBUZZ</a><a href="#playground">Попробовать</a
+        ><a href="#formats">Форматы</a>
+      </nav>
+      <button class="header-brief" data-brief>Обсудить проект</button>
+      <button
+        class="menu-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Открыть меню"
+      >
+        <span></span><span></span>
+      </button>
+    </header>
+    <nav
+      class="mobile-menu"
+      id="mobile-menu"
+      aria-label="Мобильная навигация"
+      hidden
+    >
+      <a href="#idea">Об ARBUZZ</a><a href="#playground">Попробовать</a
+      ><a href="#formats">Форматы</a><button data-brief>Обсудить проект</button>
+    </nav>
+    <main id="main">
+      <section class="hero wrap" id="top" aria-labelledby="hero-title">
+        <div class="hero-stage" data-hero>
+          <canvas
+            class="spatial-grid"
+            id="spatial-grid"
+            aria-hidden="true"
+          ></canvas>
+          <div class="hero-topline"><span>AR-проекты на заказ</span></div>
+          <div class="hero-title">
+            <h1 id="hero-title">
+              Реальность<br />с вашим<br /><span>характером.</span>
+            </h1>
+            <span class="title-star" aria-hidden="true">✳</span>
+          </div>
+          <div class="hero-art" aria-label="Коллекция объёмных объектов ARBUZZ">
+            <div class="art-orbit orbit-back"></div>
+            <div class="art-orbit orbit-front"></div>
+            <span class="art-cross cross-a" aria-hidden="true">+</span
+            ><span class="art-cross cross-b" aria-hidden="true">+</span>
+            <div class="hero-object" id="hero-object">
+              <svg
+                class="hero-product"
+                viewBox="0 0 629 876"
+                role="img"
+                aria-label="Фиолетовая банка — пример виртуального продукта"
+              >
+                <defs>
+                  <filter
+                    id="hero-cup-edge"
+                    x="-5%"
+                    y="-5%"
+                    width="110%"
+                    height="110%"
+                    color-interpolation-filters="sRGB"
+                  >
+                    <feGaussianBlur
+                      in="SourceAlpha"
+                      stdDeviation="0.7"
+                      result="softAlpha"
+                    />
+                    <feComponentTransfer in="softAlpha" result="edgeAlpha">
+                      <feFuncA type="linear" slope="1.6" intercept="-0.3" />
+                    </feComponentTransfer>
+                    <feComposite
+                      in="SourceGraphic"
+                      in2="edgeAlpha"
+                      operator="in"
+                    />
+                  </filter>
+                </defs>
+                <image
+                  href="./assets/cup.webp"
+                  filter="url(#hero-cup-edge)"
+                  width="629"
+                  height="876"
+                  preserveAspectRatio="xMidYMid meet"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="hero-bottom">
+            <div>
+              <p>Можно прийти с идеей<br />или готовой 3D-моделью.</p>
+              <a class="button button-mint" href="#playground"
+                >Посмотреть примеры
+                <span
+                  ><svg><use href="#arrow-down" /></svg></span
+              ></a>
+            </div>
+            <div
+              class="object-switcher"
+              role="group"
+              aria-label="Выбрать объект"
+            >
+              <button aria-pressed="true" data-object="cup">Продукт</button>
+              <button aria-pressed="false" data-object="camera">Камера</button>
+              <button aria-pressed="false" data-object="pin">Метка</button>
+            </div>
+          </div>
+          <button
+            class="motion-toggle"
+            aria-pressed="false"
+            aria-label="Приостановить движение"
+          >
+            <svg><use href="#pause" /></svg><span>Движение</span>
+          </button>
+        </div>
+      </section>
+      <section class="idea wrap section-space" id="idea">
+        <div class="idea-layout">
+          <h2>3D-объекты<br />в реальном городе.</h2>
+          <div class="idea-aside">
+            <p>
+              Банка напитка над площадью. Персонаж у входа в магазин. Игра,
+              которая ведёт по району.
+            </p>
+            <p>
+              В AR можно менять масштаб и добавлять то, чего нет в физическом
+              мире. Для зрителя всё происходит на экране телефона — на фоне
+              настоящего города.
+            </p>
+            <p>
+              ARBUZZ — AR-направление агентства EVT. Помогаем креативным
+              командам и авторам идей создавать AR-проекты: готовим контент и
+              настраиваем сцены. Можно прийти с готовой моделью или обсудить её
+              создание.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section
+        class="playground section-space"
+        id="playground"
+        aria-labelledby="playground-title"
+      >
+        <div class="wrap">
+          <div class="playground-heading">
+            <h2 id="playground-title">Три механики AR</h2>
+            <p>
+              Здесь — интерактивные эскизы. Локацию, контент и сценарий
+              взаимодействия подбираем под вашу идею.
+            </p>
+          </div>
+          <div class="playground-layout">
+            <div class="scenario-controls">
+              <div
+                class="scenario-tabs"
+                role="tablist"
+                aria-label="AR-сценарии"
+              >
+                <button
+                  role="tab"
+                  id="tab-city"
+                  aria-controls="scenario-panel"
+                  aria-selected="true"
+                  data-scenario="city"
+                >
+                  В городе</button
+                ><button
+                  role="tab"
+                  id="tab-package"
+                  aria-controls="scenario-panel"
+                  aria-selected="false"
+                  tabindex="-1"
+                  data-scenario="package"
+                >
+                  На упаковке</button
+                ><button
+                  role="tab"
+                  id="tab-quest"
+                  aria-controls="scenario-panel"
+                  aria-selected="false"
+                  tabindex="-1"
+                  data-scenario="quest"
+                >
+                  Игра
+                </button>
+              </div>
+              <div
+                class="scenario-description"
+                id="scenario-panel"
+                role="tabpanel"
+                aria-labelledby="tab-city"
+                aria-live="polite"
+              >
+                <h3 id="scenario-title">Объект на локации</h3>
+                <p id="scenario-copy">
+                  Готовую 3D-модель можно привязать к выбранной локации. Через
+                  камеру телефона зритель видит её на фоне города. На схеме
+                  можно сравнить масштаб объекта.
+                </p>
+                <button
+                  class="text-link"
+                  data-brief
+                  data-format="Объект в городе"
+                >
+                  Хочу похожий проект
+                </button>
+              </div>
+            </div>
+            <div class="experience-stage" aria-label="Интерактивные примеры AR">
+              <div
+                class="experiment scale-experiment"
+                data-experiment="city"
+                data-scale="building"
+              >
+                <svg
+                  class="scale-visual"
+                  viewBox="0 0 900 510"
+                  role="img"
+                  aria-label="Сравнение размера продукта с человеком и фасадом здания"
+                >
+                  <path class="scale-ground" d="M50 435H850" />
+                  <g class="scale-facade" aria-hidden="true">
+                    <path
+                      d="M660 435V94H817V435M648 94H828M678 112H800M678 191H800M678 270H800M678 349H800"
+                    />
+                    <path
+                      d="M680 130H708V171H680ZM739 130H767V171H739ZM680 209H708V250H680ZM739 209H767V250H739ZM680 288H708V329H680ZM739 288H767V329H739ZM709 368H767V435"
+                    />
+                  </g>
+                  <g
+                    class="scale-person"
+                    transform="translate(165 355) scale(.667)"
+                    aria-hidden="true"
+                  >
+                    <circle cx="18" cy="10" r="9" />
+                    <path
+                      d="M8 29Q18 23 28 29L35 63Q36 68 31 69Q27 70 25 64L22 47V77L30 115Q31 120 26 120Q22 121 20 115L13 85L9 115Q8 120 3 120Q-2 120 0 114L6 75V47L1 66Q0 71-5 69Q-9 68-7 63Z"
+                    />
+                  </g>
+                  <g transform="translate(470 435)">
+                    <g class="scale-product">
+                      <image
+                        href="./assets/cup.webp"
+                        x="-122"
+                        y="-340"
+                        width="244"
+                        height="340"
+                        preserveAspectRatio="xMidYMax meet"
+                      />
+                    </g>
+                  </g>
+                </svg>
+                <div
+                  class="experiment-controls"
+                  role="group"
+                  aria-label="Размер продукта"
+                >
+                  <button data-scale-choice="small" aria-pressed="false">
+                    Обычный
+                  </button>
+                  <button data-scale-choice="person" aria-pressed="false">
+                    Рост человека
+                  </button>
+                  <button data-scale-choice="building" aria-pressed="true">
+                    Высота здания
+                  </button>
+                </div>
+                <p class="experiment-note" role="status" id="scale-status">
+                  Схема масштаба. Реальное размещение зависит от локации.
+                </p>
+              </div>
+              <div
+                class="experiment label-experiment"
+                data-experiment="package"
+                data-open="false"
+                hidden
+              >
+                <div class="label-visual">
+                  <div
+                    class="label-animation"
+                    id="label-animation"
+                    aria-hidden="true"
+                  >
+                    <span>BUZZ</span>
+                  </div>
+                  <button
+                    class="label-trigger"
+                    aria-expanded="false"
+                    aria-controls="label-animation"
+                  >
+                    <span class="printed-label"
+                      ><span class="label-brand">ARBUZZ</span
+                      ><span class="label-symbol" aria-hidden="true">AR</span
+                      ><span class="label-print-bottom"
+                        >Дополненная реальность</span
+                      ></span
+                    >
+                    <span class="label-action"
+                      >Открыть анимацию
+                      <span class="label-toggle-icon" aria-hidden="true"
+                        >+</span
+                      ></span
+                    >
+                  </button>
+                </div>
+                <p class="experiment-note" role="status" id="label-status">
+                  Этикетка в печати. Нажмите, чтобы открыть анимацию.
+                </p>
+              </div>
+              <div
+                class="experiment route-experiment"
+                data-experiment="quest"
+                hidden
+              >
+                <div class="route-visual">
+                  <svg
+                    class="route-lines"
+                    viewBox="0 0 900 440"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <path d="M150 280H300V170H600V210H750" />
+                  </svg>
+                  <button
+                    class="route-stop stop-one"
+                    data-collect="1"
+                    aria-label="Собрать первый предмет"
+                    aria-pressed="false"
+                  >
+                    <span class="route-item" aria-hidden="true">A</span
+                    ><span class="route-check" aria-hidden="true">✓</span
+                    ><span class="stop-number" aria-hidden="true">1</span>
+                  </button>
+                  <button
+                    class="route-stop stop-two"
+                    data-collect="2"
+                    aria-label="Собрать второй предмет"
+                    aria-pressed="false"
+                  >
+                    <span class="route-item" aria-hidden="true">R</span
+                    ><span class="route-check" aria-hidden="true">✓</span
+                    ><span class="stop-number" aria-hidden="true">2</span>
+                  </button>
+                  <button
+                    class="route-stop stop-three"
+                    data-collect="3"
+                    aria-label="Собрать третий предмет"
+                    aria-pressed="false"
+                  >
+                    <span class="route-item" aria-hidden="true">BUZZ</span
+                    ><span class="route-check" aria-hidden="true">✓</span
+                    ><span class="stop-number" aria-hidden="true">3</span>
+                  </button>
+                </div>
+                <div class="route-collection">
+                  <div class="collection-items" aria-label="Собранные предметы">
+                    <span data-slot="1">A</span><span data-slot="2">✳</span
+                    ><span data-slot="3">BUZZ</span>
+                  </div>
+                  <span id="route-count" role="status">Собрано 0 из 3</span
+                  ><button class="route-reset" disabled>Начать заново</button>
+                </div>
+                <p class="experiment-note" id="route-hint">
+                  Нажмите на точки и соберите название ARBUZZ.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="entry-flow wrap" aria-labelledby="entry-title">
+        <div>
+          <h2 id="entry-title">Как зритель<br />попадает в AR</h2>
+          <p>
+            Для WebAR достаточно браузера. Поддержку устройств и способ привязки
+            проверяем на прототипе.
+          </p>
+        </div>
+        <ol class="entry-steps">
+          <li>
+            <h3>Открывает ссылку</h3>
+            <p>Из QR-кода на упаковке, афише или рядом с локацией.</p>
+          </li>
+          <li>
+            <h3>Разрешает камеру</h3>
+            <p>
+              Наводит телефон на изображение или пространство — в зависимости от
+              сценария.
+            </p>
+          </li>
+          <li>
+            <h3>Видит объект</h3>
+            <p>
+              Рассматривает его, выполняет задание или переходит на страницу
+              продукта.
+            </p>
+          </li>
+        </ol>
+      </section>
+      <section
+        class="formats section-space"
+        id="formats"
+        aria-labelledby="formats-title"
+      >
+        <div class="wrap">
+          <div class="formats-heading">
+            <h2 id="formats-title">Что можно заказать</h2>
+            <p>
+              Объём работ, сроки и стоимость зависят от контента и механики.
+              Обсудим задачу и составим смету.
+            </p>
+          </div>
+          <div class="format-list">
+            <article class="format-row">
+              <div class="format-name">
+                <h3>Одна AR-сцена</h3>
+              </div>
+              <p>
+                Один объект на одной локации или упаковке. Подготовим контент,
+                настроим привязку и проверим запуск на телефоне.
+              </p>
+              <button
+                data-brief
+                data-format="Одна AR-сцена"
+                aria-label="Обсудить формат Одна AR-сцена"
+              >
+                Обсудить
+              </button>
+            </article>
+            <article class="format-row">
+              <div class="format-name">
+                <h3>Кампания</h3>
+              </div>
+              <p>
+                Несколько AR-точек с общей идеей. Разработаем маршрут, свяжем
+                сцены и предусмотрим действие для зрителя.
+              </p>
+              <button
+                data-brief
+                data-format="Кампания"
+                aria-label="Обсудить формат Кампания"
+              >
+                Обсудить
+              </button>
+            </article>
+            <article class="format-row">
+              <div class="format-name">
+                <h3>Особая механика</h3>
+              </div>
+              <p>
+                Игра, коллекция или интерактив для события. Сначала соберём
+                прототип, чтобы проверить механику до полной разработки.
+              </p>
+              <button
+                data-brief
+                data-format="Особая механика"
+                aria-label="Обсудить формат Особая механика"
+              >
+                Обсудить
+              </button>
+            </article>
+          </div>
+          <div class="format-note">
+            <span>Свою 3D-модель тоже можно использовать.</span
+            ><button
+              class="text-link"
+              data-brief
+              data-format="Есть своя 3D-модель"
+            >
+              Обсудить размещение
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="faq wrap section-space" aria-labelledby="faq-title">
+        <div class="faq-intro">
+          <h2 id="faq-title">О запуске</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>
+              Это можно посмотреть без приложения?<span>+</span>
+            </summary>
+            <p>
+              Для подходящих сценариев мы проектируем WebAR: вход по ссылке или
+              QR-коду в браузере. Возможности зависят от устройства, способа
+              привязки и задачи — это проверяем на этапе прототипа.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Можно поставить объект в любом месте?<span>+</span>
+            </summary>
+            <p>
+              Место выбираем вместе. Точная привязка требует проверки локации и
+              технологии, а физическое размещение точки входа может потребовать
+              согласования. Подходящий способ привязки выбираем после этой
+              проверки.
+            </p>
+          </details>
+          <details>
+            <summary>А если у нас пока нет 3D-модели?<span>+</span></summary>
+            <p>
+              Начнём с идеи и подберём визуальный формат: модель, анимацию,
+              видео или интерактивную сцену. Подготовку контента включим в
+              обсуждение проекта.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Сколько стоит и сколько времени займёт?<span>+</span>
+            </summary>
+            <p>
+              Это зависит от контента, количества локаций и сложности
+              взаимодействия. После знакомства с задачей сможем предложить объём
+              работ, сроки и смету.
+            </p>
+          </details>
+        </div>
+      </section>
+      <section class="contact wrap" id="contact">
+        <div class="contact-inner">
+          <h2>Обсудим<br />ваш проект.</h2>
+          <div class="contact-bottom">
+            <p>
+              Напишите, что хотите сделать и где.<br />Если есть модель или
+              референс — покажите их в чате.
+            </p>
+            <button class="button button-dark" data-brief>Описать проект</button
+            ><a
+              class="direct-contact"
+              href="https://t.me/awonk"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Написать в Telegram<svg><use href="#arrow-up" /></svg
+              ><strong>@awonk</strong></a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer wrap">
+      <div>
+        <a class="wordmark" href="#top"
+          >ARBUZZ<span class="brand-asterisk" aria-hidden="true">✳</span></a
+        ><span>AR-направление EVT</span>
+      </div>
+      <nav aria-label="Навигация в подвале">
+        <a href="#playground">Попробовать</a
+        ><a href="https://t.me/awonk" target="_blank" rel="noopener noreferrer"
+          >Telegram ↗</a
+        ><button data-privacy>О данных</button>
+      </nav>
+      <a class="back-top" href="#top" aria-label="Наверх"
+        ><svg><use href="#arrow-up" /></svg
+      ></a>
+    </footer>
+    <dialog class="brief-dialog" aria-labelledby="brief-title">
+      <div class="brief-shell">
+        <div class="brief-top">
+          <span>ARBUZZ</span
+          ><button class="close-dialog" aria-label="Закрыть бриф">
+            <svg><use href="#close" /></svg>
+          </button>
+        </div>
+
+        <h2 id="brief-title">Расскажите о проекте</h2>
+        <form id="brief-form">
+          <fieldset>
+            <legend>Формат</legend>
+            <div class="brief-formats">
+              <label
+                ><input
+                  type="radio"
+                  name="format"
+                  value="Одна AR-сцена"
+                  checked
+                /><span>Одна AR-сцена</span></label
+              ><label
+                ><input type="radio" name="format" value="Кампания" /><span
+                  >Кампания</span
+                ></label
+              ><label
+                ><input
+                  type="radio"
+                  name="format"
+                  value="Особая механика"
+                /><span>Особая механика</span></label
+              ><label
+                ><input type="radio" name="format" value="Пока ищу идею" /><span
+                  >Пока ищу идею</span
+                ></label
+              >
+            </div>
+          </fieldset>
+          <label class="brief-field"
+            ><span>Бренд или проект</span
+            ><input
+              type="text"
+              name="brand"
+              autocomplete="organization"
+              placeholder="Название проекта"
+              maxlength="120"
+              required /></label
+          ><label class="brief-field"
+            ><span>Задача и место</span
+            ><textarea
+              name="idea"
+              rows="3"
+              maxlength="1600"
+              placeholder="Например: AR-объект у нашего магазина к открытию. Есть готовая 3D-модель."
+              required
+            ></textarea>
+          </label>
+          <div class="brief-next">
+            <button type="submit" class="button button-violet">
+              Подготовить сообщение
+            </button>
+            <p>Вы сможете проверить текст перед переходом в Telegram.</p>
+          </div>
+        </form>
+        <div class="brief-preview" hidden>
+          <span class="small-label">Текст сообщения</span>
+          <pre id="brief-message"></pre>
+          <div>
+            <a
+              id="brief-telegram"
+              href="https://t.me/awonk"
+              class="button button-violet"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Открыть Telegram <svg><use href="#arrow-up" /></svg></a
+            ><button type="button" class="brief-copy">
+              Скопировать бриф <svg><use href="#copy" /></svg>
+            </button>
+          </div>
+          <p>
+            Откроется чат с @awonk и подготовленным текстом. Отправку
+            подтверждаете вы.
+          </p>
+          <button type="button" class="brief-edit">
+            ← Вернуться к редактированию
+          </button>
+        </div>
+      </div>
+    </dialog>
+    <dialog class="privacy-dialog" aria-labelledby="privacy-title">
+      <div class="brief-top">
+        <span>ARBUZZ / О ДАННЫХ</span
+        ><button class="close-dialog" aria-label="Закрыть информацию">
+          <svg><use href="#close" /></svg>
+        </button>
+      </div>
+      <h2 id="privacy-title">Как используется бриф</h2>
+      <p>
+        Бриф подготавливается в вашем браузере. Мы не отправляем форму на сервер
+        и не сохраняем её после закрытия страницы.
+      </p>
+      <p>
+        По кнопке «Открыть Telegram» данные брифа передаются в ссылке в
+        Telegram, где вы сами подтверждаете отправку. Шрифты загружаются с
+        Google Fonts. Аналитика и рекламные cookies на этой странице не
+        используются.
+      </p>
+    </dialog>
+    <div class="site-toast" role="status" aria-live="polite"></div>
+    <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="arrow-up" viewBox="0 0 24 24">
+        <path d="M5 19 19 5M5 5h14v14" />
+      </symbol>
+      <symbol id="arrow-down" viewBox="0 0 24 24">
+        <path d="M12 3v18M5 14l7 7 7-7" />
+      </symbol>
+      <symbol id="close" viewBox="0 0 24 24">
+        <path d="m5 5 14 14M5 19 19 5" />
+      </symbol>
+      <symbol id="pause" viewBox="0 0 24 24">
+        <path d="M8 4v16M16 4v16" />
+      </symbol>
+      <symbol id="play" viewBox="0 0 24 24">
+        <path d="m8 4 12 8-12 8V4Z" />
+      </symbol>
+      <symbol id="scan" viewBox="0 0 24 24">
+        <path d="M8 3H3v5M16 3h5v5M3 16v5h5M16 21h5v-5M3 12h18" />
+      </symbol>
+      <symbol id="cube" viewBox="0 0 24 24">
+        <path d="m12 2 10 5-10 5L2 7l10-5Zm10 5v10l-10 5-10-5V7m10 5v10" />
+      </symbol>
+      <symbol id="copy" viewBox="0 0 24 24">
+        <path d="M9 9h12v12H9zM5 15H3V3h12v2" />
+      </symbol>
+    </svg>
+  </body>
+</html>
