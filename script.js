@@ -15,17 +15,18 @@ function setMotion(value) {
     paused ? "Включить движение" : "Приостановить движение",
   );
   button.querySelector("use").setAttribute("href", paused ? "#play" : "#pause");
+  button.querySelector("span").textContent = paused ? "Продолжить" : "Пауза";
 }
 setMotion(paused);
 $(".motion-toggle").addEventListener("click", () => setMotion(!paused));
 reduced.addEventListener("change", (e) => setMotion(e.matches));
 
 const heroObjects = {
-  cup: { alt: "Фиолетовая банка — пример виртуального продукта" },
+  cup: { alt: "Фиолетовая 3D-банка" },
   camera: {
-    alt: "Фиолетовая объёмная камера — образ интерактивного впечатления",
+    alt: "Фиолетовая 3D-камера",
   },
-  pin: { alt: "Фиолетовая стрелка — указатель виртуальной точки" },
+  pin: { alt: "Фиолетовый 3D-указатель" },
 };
 $$("[data-object]").forEach((button) =>
   button.addEventListener("click", () => {
@@ -104,14 +105,7 @@ $$("[data-brief]").forEach((button) =>
     context = button.dataset.format || "";
     if (context) {
       const match = $$("input[name=format]").find((r) => r.value === context);
-      const suggested =
-        {
-          "Объект в городе": "Одна AR-сцена",
-          "Живая упаковка": "Одна AR-сцена",
-          "Городская игра": "Кампания",
-        }[context] || "Пока ищу идею";
-      const mapped =
-        match || $$("input[name=format]").find((r) => r.value === suggested);
+      const mapped = match || $("input[name=format][value='Нужна помощь с идеей']");
       mapped.checked = true;
     }
     form.hidden = false;
@@ -156,13 +150,13 @@ function showToast(text) {
 $(".brief-copy").addEventListener("click", async () => {
   try {
     await navigator.clipboard.writeText($("#brief-message").textContent);
-    showToast("Бриф скопирован. До встречи в Telegram.");
+    showToast("Текст скопирован.");
   } catch {
     const selection = getSelection(),
       range = document.createRange();
     range.selectNodeContents($("#brief-message"));
     selection.removeAllRanges();
     selection.addRange(range);
-    showToast("Выделили бриф — его можно скопировать вручную.");
+    showToast("Выделили текст — скопируйте его вручную.");
   }
 });

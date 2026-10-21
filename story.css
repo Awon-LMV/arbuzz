@@ -1,6 +1,7 @@
 /* A single continuous composition, following a visitor from place to AR scene. */
 .ar-story { padding-block: 68px 95px; }
 .story-panel {
+  padding-top: 30px;
   max-width: 1120px;
   margin-inline: auto;
   border-radius: 34px;
@@ -19,17 +20,6 @@
   background-size: 84px 84px;
   pointer-events: none;
 }
-.story-heading {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: space-between;
-  gap: 25px;
-  padding: 36px 55px 0;
-  align-items: center;
-}
-.story-heading > span { font-size: 19px; font-weight: 700; letter-spacing: -.05em; }
-.story-heading > p { font-size: 12px; color: #bcb8c1; line-height: 1.5; }
 .story-track {
   position: absolute;
   inset: 40px -5% 180px;
@@ -75,7 +65,6 @@
 .story-copy > p + p { margin-top: 15px; }
 .story-prop { position: absolute; height: auto; object-fit: contain; pointer-events: none; }
 .story-pin { width: 165px; right: -3%; top: 290px; transform: rotate(12deg); }
-.story-map-caption { position: absolute; bottom: 25px; right: -4px; font-size: 10px; line-height: 1.6; color: #aaa1b4; }
 .story-camera { margin-top: 12px; }
 .story-camera .story-copy { padding-left: 15px; }
 .story-camera-prop { width: 175px; right: -16%; top: 255px; transform: rotate(-13deg); }
@@ -112,8 +101,6 @@
 @media (max-width: 800px) and (min-width: 561px) {
   .ar-story { padding-block: 45px 65px; }
   .story-panel { border-radius: 26px; }
-  .story-heading { padding: 28px 30px 10px; }
-  .story-heading > p { font-size: 10px; }
   .story-scene { padding-inline: 30px; gap: 30px; min-height: 460px; }
   .story-visual { height: 440px; }
   .story-phone { width: 175px; max-height: 405px; }
@@ -123,7 +110,6 @@
   .story-copy h2, .story-copy h3 { font-size: 34px; }
   .story-copy > p { font-size: 13px; margin-top: 20px; }
   .story-pin { width: 110px; right: -5%; top: 260px; }
-  .story-map-caption { font-size: 9px; bottom: 6px; }
   .story-camera-prop { width: 120px; right: -12%; top: 250px; }
   .story-cylinder { width: 75px; left: -10%; }
   .story-cup { width: 75px; left: -9%; top: 240px; }
@@ -135,10 +121,7 @@
 }
 @media (max-width: 560px) {
   .ar-story { padding-block: 35px 50px; }
-  .story-panel { border-radius: 22px; }
-  .story-heading { padding: 25px 25px 0; display: block; }
-  .story-heading > span { font-size: 18px; }
-  .story-heading > p { font-size: 10px; margin-top: 9px; }
+  .story-panel { border-radius: 22px; padding-top: 0; }
   .story-track { inset: 60px -65% 170px; width: 230%; height: calc(100% - 230px); opacity: .22; }
   .story-scene { display: flex; flex-direction: column; align-items: stretch; padding-inline: 25px; gap: 0; min-height: 0; }
   .story-copy { order: 0; padding: 35px 0 0; }
@@ -151,7 +134,6 @@
   .phone-camera { left: 25%; top: 15px; }
   .phone-collection { left: 17%; top: 20px; }
   .story-pin { width: 120px; right: -10px; top: 230px; }
-  .story-map-caption { right: 0; bottom: 18px; font-size: 9px; }
   .story-camera { margin-top: 0; }
   .story-camera .story-copy { padding-left: 0; }
   .story-camera-prop { width: 130px; right: -20px; top: 240px; }
@@ -168,7 +150,6 @@
   .story-source { font-size: 10px; margin-top: 26px; }
 }
 @media (max-width: 360px) {
-  .story-heading { padding-inline: 22px; }
   .story-scene { padding-inline: 22px; }
   .story-copy h2, .story-copy h3 { font-size: 29px; }
   .story-copy > p { font-size: 13px; }

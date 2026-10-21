@@ -6,9 +6,9 @@
     <meta name="theme-color" content="#f2f1ec" />
     <meta
       name="description"
-      content="ARBUZZ — AR-направление EVT. Создаём AR-проекты для брендов, событий и авторских идей. Можно прийти с замыслом или готовой 3D-моделью."
+      content="ARBUZZ — AR-направление EVT. Создаём AR-проекты для брендов, событий и авторских идей. Можно прийти с идеей или готовой 3D-моделью."
     />
-    <title>ARBUZZ — реальность с вашим характером</title>
+    <title>ARBUZZ — AR-проекты на заказ</title>
     <link rel="icon" href="./assets/mark.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,9 +18,9 @@
     />
     <link rel="preload" href="./assets/cup.webp" as="image" />
     <link rel="stylesheet" href="./styles.css?v=8" />
-    <link rel="stylesheet" href="./narrative.css?v=9" />
-    <link rel="stylesheet" href="./story.css?v=9" />
-    <script type="module" src="./script.js?v=9"></script>
+    <link rel="stylesheet" href="./narrative.css?v=10" />
+    <link rel="stylesheet" href="./story.css?v=10" />
+    <script type="module" src="./script.js?v=10"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">К содержанию</a>
@@ -30,8 +30,8 @@
       >
       <span class="header-caption">AR-направление<br />агентства EVT</span>
       <nav aria-label="Основная навигация">
-        <a href="#playground">Что можно сделать</a><a href="#process">Как работаем</a
-        ><a href="#formats">Форматы</a>
+        <a href="#playground">Примеры</a><a href="#process">Как работаем</a
+        ><a href="#formats">Услуги</a>
       </nav>
       <button class="header-brief" data-brief>Обсудить проект</button>
       <button
@@ -49,8 +49,8 @@
       aria-label="Мобильная навигация"
       hidden
     >
-      <a href="#playground">Что можно сделать</a><a href="#process">Как работаем</a
-      ><a href="#formats">Форматы</a><button data-brief>Обсудить проект</button>
+      <a href="#playground">Примеры</a><a href="#process">Как работаем</a
+      ><a href="#formats">Услуги</a><button data-brief>Обсудить проект</button>
     </nav>
     <main id="main">
       <section class="hero wrap" id="top" aria-labelledby="hero-title">
@@ -60,10 +60,9 @@
             id="spatial-grid"
             aria-hidden="true"
           ></canvas>
-          <div class="hero-topline"><span>AR-проекты на заказ</span></div>
           <div class="hero-title">
             <h1 id="hero-title">
-              Реальность<br />с вашим<br /><span>характером.</span>
+              Создаём<br />AR-проекты<br /><span>на заказ.</span>
             </h1>
             <span class="title-star" aria-hidden="true">✳</span>
           </div>
@@ -77,7 +76,7 @@
                 class="hero-product"
                 viewBox="0 0 629 876"
                 role="img"
-                aria-label="Фиолетовая банка — пример виртуального продукта"
+                aria-label="Фиолетовая 3D-банка"
               >
                 <defs>
                   <filter
@@ -115,9 +114,9 @@
           </div>
           <div class="hero-bottom">
             <div>
-              <p>Создаём AR-проекты для города, упаковки и событий.<br /> От первой идеи до сцены на экране телефона.</p>
+              <p>Виртуальные объекты для города, упаковки и событий.<br /> Можно прийти с идеей или готовой 3D-моделью.</p>
               <a class="button button-mint" href="#playground"
-                >Посмотреть, что возможно
+                >Посмотреть примеры
                 <span
                   ><svg><use href="#arrow-down" /></svg></span
               ></a>
@@ -127,9 +126,9 @@
               role="group"
               aria-label="Выбрать объект"
             >
-              <button aria-pressed="true" data-object="cup">Продукт</button>
+              <button aria-pressed="true" data-object="cup">Банка</button>
               <button aria-pressed="false" data-object="camera">Камера</button>
-              <button aria-pressed="false" data-object="pin">Метка</button>
+              <button aria-pressed="false" data-object="pin">Указатель</button>
             </div>
           </div>
           <button
@@ -137,31 +136,29 @@
             aria-pressed="false"
             aria-label="Приостановить движение"
           >
-            <svg><use href="#pause" /></svg><span>Движение</span>
+            <svg><use href="#pause" /></svg><span>Пауза</span>
           </button>
         </div>
       </section>
       <section class="ar-story wrap" id="playground" aria-labelledby="story-title">
         <div class="story-panel">
-          <div class="story-heading"><span>ARBUZZ</span><p>Как может выглядеть ваш AR-проект</p></div>
           <svg class="story-track" viewBox="0 0 1100 1720" preserveAspectRatio="none" aria-hidden="true"><path d="M115 195C-110 295-80 575 170 610S415 535 715 620S1190 825 975 1020S435 1080 250 1310S355 1630 710 1620" /></svg>
           <div class="story-scene story-place">
             <div class="story-visual">
               <img class="story-phone phone-place" src="./assets/story-map.png" width="344" height="788" loading="lazy" alt="Экран карты с AR-точками в исходном проекте EVT" />
               <img class="story-prop story-pin" src="./assets/ar-point.webp" width="220" height="220" loading="lazy" alt="" />
-              <span class="story-map-caption" aria-hidden="true">Место встречи<br />с вашей идеей</span>
             </div>
             <div class="story-copy">
-              <h2 id="story-title">Всё начинается<br />с обычного места.</h2>
-              <p>Площадь, вход на событие или двор рядом с магазином. Выбираем, где человек встретится с вашей идеей и как откроет AR-сцену.</p>
-              <p>Входом может стать ссылка или QR-код. А дальше понадобится камера телефона.</p>
+              <h2 id="story-title">Выбираем место<br />для AR-объекта.</h2>
+              <p>Объект может появиться у входа в магазин, на площади или на выставке. Вместе выбираем место и способ, которым зритель откроет сцену.</p>
+              <p>Зритель открывает ссылку или сканирует QR-код, затем разрешает доступ к камере.</p>
             </div>
           </div>
           <div class="story-scene story-camera">
             <div class="story-copy">
-              <h3>Наводит камеру —<br />появляется<br />ваш объект.</h3>
-              <p>На фоне настоящего места возникает то, чего там не было: персонаж, продукт или целая сцена.</p>
-              <p>Объект можно сделать размером с ладонь или выше человека. Добавить движение, звук и реакцию на прикосновение.</p>
+              <h3>Через камеру виден<br />ваш объект.</h3>
+              <p>На изображении с камеры появляется персонаж, продукт или 3D-сцена.</p>
+              <p>Настраиваем размер объекта, анимацию, звук и реакцию на нажатия.</p>
             </div>
             <div class="story-visual">
               <img class="story-phone phone-camera" src="./assets/story-ar.png" width="323" height="739" loading="lazy" alt="Пример AR-персонажа через камеру телефона из исходного проекта ARBUZZ" />
@@ -177,30 +174,28 @@
               <span class="story-asterisk" aria-hidden="true">✳</span>
             </div>
             <div class="story-copy">
-              <h3>Одна находка<br />ведёт к следующей.</h3>
-              <p>Несколько объектов можно связать в маршрут. В каждой точке — находка или задание, а в конце — собранная коллекция.</p>
-              <p>Так из отдельных сцен складывается игра для события, района или выставки. Механику придумываем вместе с вами.</p>
+              <h3>Игра с поиском<br />AR-объектов.</h3>
+              <p>Связываем несколько сцен в маршрут для события, района или выставки. На каждой точке зритель находит предмет или выполняет задание.</p>
+              <p>Собранные предметы складываются в коллекцию. Правила игры и задания разрабатываем под ваш проект.</p>
             </div>
           </div>
           <div class="story-ending">
-            <div><p>Место, объект и действие зрителя.<br /> Из этого мы собираем ваш AR-проект.</p><button class="button button-mint" data-brief data-format="Пока ищу идею">Обсудить свою идею <svg aria-hidden="true"><use href="#arrow-up" /></svg></button></div>
-            <p class="story-source">Здесь — экраны исходного проекта ARBUZZ. Для вашей идеи подбираем контент, механику и способ запуска. Поддержку устройств проверяем на прототипе.</p>
+            <div><p>Разработаем AR-проект<br /> по вашей идее.</p><button class="button button-mint" data-brief data-format="Нужна помощь с идеей">Обсудить свою идею <svg aria-hidden="true"><use href="#arrow-up" /></svg></button></div>
+            <p class="story-source">На иллюстрациях — экраны ранней версии ARBUZZ.</p>
           </div>
         </div>
       </section>
       <section class="process wrap" id="process" aria-labelledby="process-title">
         <div class="process-inner">
-          <div class="chapter-line"><span>От замысла к запуску</span><span>Вместе с ARBUZZ</span></div>
           <div class="process-layout">
             <div class="process-intro">
-              <h2 id="process-title">«А что, если…»<br />Хорошее<br />начало проекта.</h2>
-              <p>Готовый бриф необязателен. Начнём с того, что вы хотите показать и что должен сделать зритель.</p>
-              <img src="./assets/camera.webp" width="320" height="320" loading="lazy" alt="" />
+              <h2 id="process-title">Как работаем<br />над проектом</h2>
+              <p>Готовый бриф не нужен. Достаточно описать, что вы хотите показать и где.</p>
             </div>
             <ol class="process-steps">
-              <li><span class="process-number">01</span><div><h3>Превращаем идею в сценарий</h3><p>Выбираем место, объект и действие зрителя. Решаем, зачем здесь AR и как человек о нём узнает.</p><span class="process-output">На выходе — понятная концепция</span></div></li>
-              <li><span class="process-number">02</span><div><h3>Проверяем на прототипе</h3><p>Пробуем привязку, масштаб и взаимодействие на телефоне. Проверяем ограничения локации и устройств до полной разработки.</p><span class="process-output">На выходе — проверенная механика и объём работ</span></div></li>
-              <li><span class="process-number">03</span><div><h3>Готовим к встрече со зрителем</h3><p>Собираем контент, настраиваем сцену и точку входа. Проверяем весь путь: от ссылки до действия внутри AR.</p><span class="process-output">На выходе — AR-проект для запуска</span></div></li>
+              <li><span class="process-number">01</span><div><h3>Обсуждаем задачу</h3><p>Определяем, что зритель увидит, где откроет сцену и что сможет в ней сделать.</p></div></li>
+              <li><span class="process-number">02</span><div><h3>Проверяем прототип</h3><p>Собираем пробную сцену и проверяем её на телефоне: привязку к месту или изображению, масштаб и управление.</p></div></li>
+              <li><span class="process-number">03</span><div><h3>Разрабатываем и запускаем</h3><p>Готовим модели и анимацию, собираем сцену, настраиваем вход по ссылке или QR-коду. Проверяем весь путь зрителя перед запуском.</p></div></li>
             </ol>
           </div>
         </div>
@@ -212,9 +207,9 @@
       >
         <div class="wrap">
           <div class="formats-heading">
-            <h2 id="formats-title">Начать с одной сцены.<br />Или придумать целый мир.</h2>
+            <h2 id="formats-title">Что можно<br />заказать</h2>
             <p>
-              Объём работ, сроки и стоимость зависят от контента и механики.
+              Сроки и стоимость зависят от количества сцен, моделей и сложности взаимодействий.
               Обсудим задачу и составим смету.
             </p>
           </div>
@@ -224,8 +219,8 @@
                 <h3>Одна AR-сцена</h3>
               </div>
               <p>
-                Один объект на одной локации или упаковке. Подготовим контент,
-                настроим привязку и проверим запуск на телефоне.
+                Объект на локации или упаковке. Подготовим модель и анимацию,
+                настроим сцену и проверим её на телефоне.
               </p>
               <button
                 data-brief
@@ -237,32 +232,32 @@
             </article>
             <article class="format-row">
               <div class="format-name">
-                <h3>Кампания</h3>
+                <h3>Несколько AR-точек</h3>
               </div>
               <p>
-                Несколько AR-точек с общей идеей. Разработаем маршрут, свяжем
-                сцены и предусмотрим действие для зрителя.
+                Несколько связанных сцен для события, выставки или городского
+                маршрута. Подготовим объекты для каждой точки и свяжем сцены между собой.
               </p>
               <button
                 data-brief
-                data-format="Кампания"
-                aria-label="Обсудить формат Кампания"
+                data-format="Несколько AR-точек"
+                aria-label="Обсудить формат Несколько AR-точек"
               >
                 Обсудить
               </button>
             </article>
             <article class="format-row">
               <div class="format-name">
-                <h3>Особая механика</h3>
+                <h3>AR-игра</h3>
               </div>
               <p>
-                Игра, коллекция или интерактив для события. Сначала соберём
-                прототип, чтобы проверить механику до полной разработки.
+                Поиск предметов, задания и сбор коллекции. Придумаем правила
+                и проверим игру на прототипе до полной разработки.
               </p>
               <button
                 data-brief
-                data-format="Особая механика"
-                aria-label="Обсудить формат Особая механика"
+                data-format="AR-игра"
+                aria-label="Обсудить формат AR-игра"
               >
                 Обсудить
               </button>
@@ -282,17 +277,17 @@
       </section>
       <section class="faq wrap section-space" aria-labelledby="faq-title">
         <div class="faq-intro">
-          <h2 id="faq-title">О запуске</h2>
+          <h2 id="faq-title">Вопросы о запуске</h2>
         </div>
         <div class="faq-list">
           <details>
             <summary>
-              Это можно посмотреть без приложения?<span>+</span>
+              Нужно ли устанавливать приложение?<span>+</span>
             </summary>
             <p>
-              Для подходящих сценариев мы проектируем WebAR: вход по ссылке или
-              QR-коду в браузере. Возможности зависят от устройства, способа
-              привязки и задачи — это проверяем на этапе прототипа.
+              Для WebAR приложение не нужно: сцена открывается в браузере по
+              ссылке или QR-коду. Подойдёт ли этот вариант для вашего проекта
+              и устройств зрителей, проверяем на прототипе.
             </p>
           </details>
           <details>
@@ -300,18 +295,16 @@
               Можно поставить объект в любом месте?<span>+</span>
             </summary>
             <p>
-              Место выбираем вместе. Точная привязка требует проверки локации и
-              технологии, а физическое размещение точки входа может потребовать
-              согласования. Подходящий способ привязки выбираем после этой
-              проверки.
+              Проверим, можно ли надёжно закрепить объект в выбранном месте.
+              Если нужен QR-код на афише или табличке, его размещение может
+              потребовать согласования.
             </p>
           </details>
           <details>
             <summary>А если у нас пока нет 3D-модели?<span>+</span></summary>
             <p>
-              Начнём с идеи и подберём визуальный формат: модель, анимацию,
-              видео или интерактивную сцену. Подготовку контента включим в
-              обсуждение проекта.
+              Подготовим 3D-модель или подберём другой контент — анимацию,
+              видео или интерактивную сцену. Обсудим это вместе с основной задачей.
             </p>
           </details>
           <details>
@@ -328,12 +321,10 @@
       </section>
       <section class="contact wrap" id="contact">
         <div class="contact-inner">
-          <span class="eyebrow">Теперь ваша идея</span>
-          <h2>Что добавим<br />в реальность?</h2>
+          <h2>Обсудим<br />ваш проект</h2>
           <div class="contact-bottom">
             <p>
-              Расскажите задумку в паре предложений.<br /> Если есть модель или
-              референс — с них тоже можно начать.
+              Коротко опишите задачу и место.<br /> Готовую модель или референс можно прислать в Telegram.
             </p>
             <button class="button button-dark" data-brief>Описать проект</button
             ><a
@@ -368,7 +359,7 @@
       <div class="brief-shell">
         <div class="brief-top">
           <span>ARBUZZ</span
-          ><button class="close-dialog" aria-label="Закрыть бриф">
+          ><button class="close-dialog" aria-label="Закрыть форму">
             <svg><use href="#close" /></svg>
           </button>
         </div>
@@ -376,7 +367,7 @@
         <h2 id="brief-title">Расскажите о проекте</h2>
         <form id="brief-form">
           <fieldset>
-            <legend>Формат</legend>
+            <legend>Что хотите заказать</legend>
             <div class="brief-formats">
               <label
                 ><input
@@ -386,18 +377,18 @@
                   checked
                 /><span>Одна AR-сцена</span></label
               ><label
-                ><input type="radio" name="format" value="Кампания" /><span
-                  >Кампания</span
+                ><input type="radio" name="format" value="Несколько AR-точек" /><span
+                  >Несколько AR-точек</span
                 ></label
               ><label
                 ><input
                   type="radio"
                   name="format"
-                  value="Особая механика"
-                /><span>Особая механика</span></label
+                  value="AR-игра"
+                /><span>AR-игра</span></label
               ><label
-                ><input type="radio" name="format" value="Пока ищу идею" /><span
-                  >Пока ищу идею</span
+                ><input type="radio" name="format" value="Нужна помощь с идеей" /><span
+                  >Нужна помощь с идеей</span
                 ></label
               >
             </div>
@@ -412,7 +403,7 @@
               maxlength="120"
               required /></label
           ><label class="brief-field"
-            ><span>Задача и место</span
+            ><span>Что хотите сделать и где</span
             ><textarea
               name="idea"
               rows="3"
@@ -440,7 +431,7 @@
               rel="noopener noreferrer"
               >Открыть Telegram <svg><use href="#arrow-up" /></svg></a
             ><button type="button" class="brief-copy">
-              Скопировать бриф <svg><use href="#copy" /></svg>
+              Скопировать текст <svg><use href="#copy" /></svg>
             </button>
           </div>
           <p>
@@ -455,18 +446,18 @@
     </dialog>
     <dialog class="privacy-dialog" aria-labelledby="privacy-title">
       <div class="brief-top">
-        <span>ARBUZZ / О ДАННЫХ</span
+        <span>ARBUZZ</span
         ><button class="close-dialog" aria-label="Закрыть информацию">
           <svg><use href="#close" /></svg>
         </button>
       </div>
-      <h2 id="privacy-title">Как используется бриф</h2>
+      <h2 id="privacy-title">Данные формы</h2>
       <p>
-        Бриф подготавливается в вашем браузере. Мы не отправляем форму на сервер
+        Описание проекта подготавливается в вашем браузере. Мы не отправляем форму на сервер
         и не сохраняем её после закрытия страницы.
       </p>
       <p>
-        По кнопке «Открыть Telegram» данные брифа передаются в ссылке в
+        По кнопке «Открыть Telegram» данные формы передаются в ссылке в
         Telegram, где вы сами подтверждаете отправку. Шрифты загружаются с
         Google Fonts. Аналитика и рекламные cookies на этой странице не
         используются.

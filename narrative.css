@@ -5,27 +5,12 @@ html { scroll-padding-top: 28px; }
   font-size: 14px;
   color: #c3c2bb;
 }
-.chapter-line {
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-  border-top: 1px solid var(--line);
-  padding-top: 18px;
-  margin-bottom: 54px;
-  font-size: 12px;
-  line-height: 1.5;
-}
-.chapter-line > span:last-child { color: #726f68; }
-.eyebrow { display: block; font-size: 12px; line-height: 1.5; margin-bottom: 24px; color: #777168; }
 .process { margin-bottom: 85px; }
 .process-inner { padding: 36px 44px 44px; border-radius: 20px; background: #242027; color: #f2f0e9; }
-.process .chapter-line { border-color: #514957; margin-bottom: 52px; }
-.process .chapter-line > span:last-child { color: #b4aabd; }
 .process-layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 9%; }
 .process-intro { position: relative; min-width: 0; }
 .process h2 { font-size: clamp(34px, 4vw, 61px); line-height: 1.06; font-weight: 500; letter-spacing: -.045em; }
 .process-intro > p { margin-top: 27px; font-size: 14px; line-height: 1.7; color: #b9b0bf; max-width: 325px; }
-.process-intro > img { width: 185px; height: 185px; object-fit: contain; margin: 15px 0 -8px 20px; transform: rotate(-10deg); }
 .process-steps { list-style: none; margin: 0; padding: 0; }
 .process-steps > li { display: grid; grid-template-columns: 26px 1fr; gap: 15px; padding: 28px 0; border-top: 1px solid #514957; }
 .process-steps > li:first-child { padding-top: 0; border-top: 0; }
@@ -33,11 +18,9 @@ html { scroll-padding-top: 28px; }
 .process-number { font-size: 11px; color: #c9ff8a; padding-top: 5px; }
 .process-steps h3 { font-size: 21px; line-height: 1.3; font-weight: 500; letter-spacing: -.02em; }
 .process-steps p { font-size: 14px; line-height: 1.7; color: #b9b0bf; margin-top: 12px; }
-.process-output { display: block; margin-top: 15px; font-size: 11px; line-height: 1.7; color: #d7e7c5; }
 .formats-heading { align-items: flex-end; }
 .formats h2 { font-size: clamp(32px, 3.5vw, 55px); line-height: 1.16; max-width: 650px; }
 .formats-heading > p { max-width: 315px; }
-.contact .eyebrow { color: #444c32; margin-bottom: 30px; }
 .contact h2 { font-size: clamp(58px, 7.8vw, 120px); }
 
 @media (max-width: 1100px) {
@@ -50,7 +33,6 @@ html { scroll-padding-top: 28px; }
   .formats-heading { align-items: start; }
 }
 @media (max-width: 800px) {
-  .chapter-line { margin-bottom: 38px; font-size: 11px; }
   .process-layout { grid-template-columns: 1fr 1.15fr; gap: 6%; }
   .process h2 { font-size: 33px; }
   .process-steps > li { grid-template-columns: 22px 1fr; gap: 8px; }
@@ -65,25 +47,18 @@ html { scroll-padding-top: 28px; }
   .hero-bottom > div:first-child > p { font-size: 13px; max-width: 300px; line-height: 1.65; }
   .hero-bottom p br { display: none; }
   .hero-bottom .button { font-size: 12px; gap: 18px; }
-  .chapter-line { font-size: 10px; margin-bottom: 30px; padding-top: 15px; }
-  .chapter-line > span:last-child { display: none; }
-  .eyebrow { font-size: 11px; margin-bottom: 17px; }
   .process { margin-bottom: 50px; }
   .process-inner { border-radius: 14px; padding: 25px 23px 32px; }
-  .process .chapter-line { margin-bottom: 32px; }
   .process-layout { display: block; }
   .process h2 { font-size: clamp(33px, 9vw, 46px); }
   .process-intro > p { font-size: 14px; margin-top: 22px; }
-  .process-intro > img { width: 140px; height: 140px; margin: 12px 0 20px auto; }
   .process-steps > li { padding-block: 25px; grid-template-columns: 23px 1fr; gap: 12px; }
   .process-steps > li:first-child { border-top: 1px solid #514957; padding-top: 25px; }
   .process-steps h3 { font-size: 19px; }
   .process-steps p { font-size: 13px; }
-  .process-output { font-size: 10px; }
   .formats h2 { font-size: clamp(29px, 8vw, 42px); }
   .formats-heading > p { max-width: 100%; font-size: 14px; }
   .contact h2 { font-size: clamp(39px, 10.7vw, 60px); }
-  .contact .eyebrow { margin-bottom: 23px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
