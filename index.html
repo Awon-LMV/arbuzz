@@ -20,7 +20,8 @@
     <link rel="stylesheet" href="./styles.css?v=8" />
     <link rel="stylesheet" href="./narrative.css?v=10" />
     <link rel="stylesheet" href="./story.css?v=10" />
-    <script type="module" src="./script.js?v=10"></script>
+    <link rel="stylesheet" href="./studio.css?v=11" />
+    <script type="module" src="./script.js?v=11"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">К содержанию</a>
@@ -191,11 +192,25 @@
             <div class="process-intro">
               <h2 id="process-title">Как работаем<br />над проектом</h2>
               <p>Готовый бриф не нужен. Достаточно описать, что вы хотите показать и где.</p>
+              <figure class="build-figure" data-build-stage="idea" aria-label="Как объект меняется от эскиза до готовой сцены">
+                <div class="build-stage" aria-hidden="true">
+                  <span class="build-number">01</span>
+                  <div class="build-ground"></div>
+                  <div class="build-phone"><span></span><i></i></div>
+                  <svg class="build-wire" viewBox="0 0 240 400"><ellipse cx="120" cy="48" rx="76" ry="24"/><path d="M44 48V340C44 373 196 373 196 340V48M44 340C44 307 196 307 196 340M69 66V356M97 72V364M143 72V364M171 66V356"/><ellipse cx="120" cy="120" rx="76" ry="24"/><ellipse cx="120" cy="195" rx="76" ry="24"/><ellipse cx="120" cy="270" rx="76" ry="24"/></svg>
+                  <img class="build-product" src="./assets/cup.webp" width="200" height="279" loading="lazy" alt="" />
+                  <span class="build-anchor anchor-one">+</span><span class="build-anchor anchor-two">+</span><span class="build-anchor anchor-three">+</span>
+                </div>
+                <div class="build-choices" role="group" aria-label="Показать этап создания объекта">
+                  <button data-build-choice="idea" aria-pressed="true">Эскиз</button><button data-build-choice="prototype" aria-pressed="false">Прототип</button><button data-build-choice="launch" aria-pressed="false">Запуск</button>
+                </div>
+                <div class="build-progress" aria-hidden="true"><span></span></div>
+              </figure>
             </div>
             <ol class="process-steps">
-              <li><span class="process-number">01</span><div><h3>Обсуждаем задачу</h3><p>Определяем, что зритель увидит, где откроет сцену и что сможет в ней сделать.</p></div></li>
-              <li><span class="process-number">02</span><div><h3>Проверяем прототип</h3><p>Собираем пробную сцену и проверяем её на телефоне: привязку к месту или изображению, масштаб и управление.</p></div></li>
-              <li><span class="process-number">03</span><div><h3>Разрабатываем и запускаем</h3><p>Готовим модели и анимацию, собираем сцену, настраиваем вход по ссылке или QR-коду. Проверяем весь путь зрителя перед запуском.</p></div></li>
+              <li data-build-step="idea"><span class="process-number">01</span><div><h3>Обсуждаем задачу</h3><p>Определяем, что зритель увидит, где откроет сцену и что сможет в ней сделать.</p></div></li>
+              <li data-build-step="prototype"><span class="process-number">02</span><div><h3>Проверяем прототип</h3><p>Собираем пробную сцену и проверяем её на телефоне: привязку к месту или изображению, масштаб и управление.</p></div></li>
+              <li data-build-step="launch"><span class="process-number">03</span><div><h3>Разрабатываем и запускаем</h3><p>Готовим модели и анимацию, собираем сцену, настраиваем вход по ссылке или QR-коду. Проверяем весь путь зрителя перед запуском.</p></div></li>
             </ol>
           </div>
         </div>
@@ -215,6 +230,12 @@
           </div>
           <div class="format-list">
             <article class="format-row">
+              <div class="format-art art-scale">
+                <button class="scale-toy" aria-label="Изменить масштаб объекта" aria-pressed="false">
+                  <span class="toy-orbit" aria-hidden="true"></span><span class="toy-float scale-model"><img src="./assets/cup.webp" width="170" height="237" loading="lazy" alt="Фиолетовая банка" /></span>
+                  <span class="toy-instruction">Увеличить объект <span aria-hidden="true">↗</span></span>
+                </button>
+              </div>
               <div class="format-name">
                 <h3>Одна AR-сцена</h3>
               </div>
@@ -231,6 +252,15 @@
               </button>
             </article>
             <article class="format-row">
+              <div class="format-art art-route">
+                <button class="route-toy" aria-label="Показать маршрут между AR-точками" aria-pressed="false">
+                  <svg class="toy-route-line" viewBox="0 0 400 280" aria-hidden="true"><path pathLength="1" d="M75 175Q145 245 195 130T325 115"/></svg>
+                  <span class="route-pin route-pin-one toy-float"><img src="./assets/ar-point.webp" width="100" height="100" loading="lazy" alt="" /></span>
+                  <span class="route-pin route-pin-two toy-float"><img src="./assets/ar-point.webp" width="100" height="100" loading="lazy" alt="" /></span>
+                  <span class="route-pin route-pin-three toy-float"><img src="./assets/ar-point.webp" width="100" height="100" loading="lazy" alt="" /></span>
+                  <span class="toy-instruction">Соединить точки <span aria-hidden="true">↗</span></span>
+                </button>
+              </div>
               <div class="format-name">
                 <h3>Несколько AR-точек</h3>
               </div>
@@ -247,6 +277,14 @@
               </button>
             </article>
             <article class="format-row">
+              <div class="format-art art-collection" role="group" aria-label="Пример сбора AR-предметов">
+                <div class="collection-toys">
+                  <button class="collect-toy collect-cup toy-float" data-toy-collect="cup" aria-label="Собрать банку" aria-pressed="false"><img src="./assets/cup.webp" width="90" height="125" loading="lazy" alt="" /><span aria-hidden="true">✓</span></button>
+                  <button class="collect-toy collect-camera toy-float" data-toy-collect="camera" aria-label="Собрать камеру" aria-pressed="false"><img src="./assets/camera.webp" width="110" height="110" loading="lazy" alt="" /><span aria-hidden="true">✓</span></button>
+                  <button class="collect-toy collect-pin toy-float" data-toy-collect="pin" aria-label="Собрать указатель" aria-pressed="false"><img src="./assets/pin.webp" width="95" height="95" loading="lazy" alt="" /><span aria-hidden="true">✓</span></button>
+                </div>
+                <div class="collection-bottom"><span class="toy-count" role="status">Соберите 3 предмета</span><button class="toy-reset" disabled>Сбросить</button></div>
+              </div>
               <div class="format-name">
                 <h3>AR-игра</h3>
               </div>

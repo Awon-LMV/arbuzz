@@ -1,13 +1,16 @@
 import { spatialField } from "./scene.js";
+import { setupStudio } from "./studio.js";
 const $ = (s) => document.querySelector(s),
   $$ = (s) => [...document.querySelectorAll(s)];
 const reduced = matchMedia("(prefers-reduced-motion: reduce)");
 const field = spatialField($("#spatial-grid"));
+const studio = setupStudio();
 let paused = reduced.matches;
 function setMotion(value) {
   paused = value;
   document.body.classList.toggle("motion-paused", paused);
   field.setPaused(paused);
+  studio.setPaused(paused);
   const button = $(".motion-toggle");
   button.setAttribute("aria-pressed", String(paused));
   button.setAttribute(
