@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="./styles.css?v=8" />
     <link rel="stylesheet" href="./narrative.css?v=10" />
     <link rel="stylesheet" href="./story.css?v=10" />
-    <link rel="stylesheet" href="./studio.css?v=16" />
+    <link rel="stylesheet" href="./studio.css?v=18" />
     <script type="module" src="./script.js?v=12"></script>
   </head>
   <body>
@@ -183,6 +183,52 @@
           <div class="story-ending">
             <div><p>Разработаем AR-проект<br /> по вашей идее.</p><button class="button button-mint" data-brief data-format="Нужна помощь с идеей">Обсудить свою идею <svg aria-hidden="true"><use href="#arrow-up" /></svg></button></div>
             <p class="story-source">На иллюстрациях — экраны ранней версии ARBUZZ.</p>
+          </div>
+        </div>
+      </section>
+      <section class="mech wrap" id="mechanics" aria-labelledby="mech-title">
+        <div class="mech-heading">
+          <h2 id="mech-title">Три механики AR</h2>
+          <p>Интерактивные схемы. Место, контент и сценарий подбираем под вашу идею.</p>
+        </div>
+        <div class="mech-layout" data-scene="city">
+          <div class="mech-side">
+            <div class="mech-tabs" role="tablist" aria-label="Механики AR">
+              <button role="tab" id="mech-tab-city" data-mech="city" aria-selected="true" aria-controls="mech-panel">В городе</button><button role="tab" id="mech-tab-pack" data-mech="pack" aria-selected="false" aria-controls="mech-panel" tabindex="-1">На упаковке</button><button role="tab" id="mech-tab-game" data-mech="game" aria-selected="false" aria-controls="mech-panel" tabindex="-1">Игра</button>
+            </div>
+            <div class="mech-copy" data-for="city"><h3>Объект на локации</h3><p>Готовую 3D-модель привязываем к выбранному месту. Зритель видит её через камеру телефона на фоне города. Размер подбираем под площадку.</p><button class="mech-cta" data-brief data-format="AR-объект в городе">Хочу похожий проект</button></div>
+            <div class="mech-copy" data-for="pack" hidden><h3>Сцена на упаковке</h3><p>Камера узнаёт изображение на упаковке, и над ней появляется объект или анимация. Подходит для продукта, афиши или открытки.</p><button class="mech-cta" data-brief data-format="AR на упаковке">Хочу похожий проект</button></div>
+            <div class="mech-copy" data-for="game" hidden><h3>Поиск предметов</h3><p>Зритель находит объекты на точках маршрута и собирает коллекцию. Правила и задания придумываем под событие или район.</p><button class="mech-cta" data-brief data-format="AR-игра">Хочу похожий проект</button></div>
+          </div>
+          <div class="mech-view" id="mech-panel" role="tabpanel" aria-labelledby="mech-tab-city">
+            <div class="mech-stage" data-step="0">
+              <svg class="mech-lines" viewBox="0 0 600 380" aria-hidden="true">
+                <path class="mech-ground" d="M20 330H580" />
+                <g class="mech-scene scene-city">
+                  <circle cx="110" cy="289" r="5" /><path d="M110 294V313M110 313L103 330M110 313L117 330M110 299L102 311M110 299L118 311" />
+                  <path d="M400 330V70H520V330M394 70H526" /><rect x="418" y="98" width="18" height="26" /><rect x="451" y="98" width="18" height="26" /><rect x="484" y="98" width="18" height="26" /><rect x="418" y="184" width="18" height="26" /><rect x="451" y="184" width="18" height="26" /><rect x="484" y="184" width="18" height="26" /><rect x="418" y="270" width="18" height="26" /><rect x="484" y="270" width="18" height="26" /><path d="M484 330V300H502V330" />
+                  <path d="M565 330V226M565 226H550" /><path d="M546 226H554" class="mech-lamp" />
+                </g>
+                <g class="mech-scene scene-pack">
+                  <path d="M230 330V250H370V330M230 250L252 236H392L370 250M392 236V316L370 330" />
+                  <rect x="262" y="268" width="76" height="44" />
+                  <path class="mech-brackets" d="M250 270V258H262M338 258H350V270M350 310V322H338M262 322H250V310" />
+                </g>
+                <g class="mech-scene scene-game">
+                  <path class="mech-route" d="M120 318C190 350 230 280 300 312S420 350 480 314" />
+                  <path class="mech-route mech-route-live" pathLength="1" d="M120 318C190 350 230 280 300 312S420 350 480 314" />
+                </g>
+              </svg>
+              <div class="mech-scale"><img src="./assets/cup.webp" width="629" height="876" loading="lazy" alt="" /><span class="mech-measure"><i></i><b data-measure>3 м</b></span></div>
+              <div class="mech-rise"><img src="./assets/cup.webp" width="629" height="876" loading="lazy" alt="" /></div>
+              <div class="mech-finds"><button class="mech-find f-cup" data-find aria-pressed="false" aria-label="Найти: банка"><svg viewBox="0 0 629 876" aria-hidden="true"><image href="./assets/cup.webp" width="629" height="876" filter="url(#build-contour)" /></svg><img src="./assets/cup.webp" width="629" height="876" loading="lazy" alt="" /></button><button class="mech-find f-cam" data-find aria-pressed="false" aria-label="Найти: камера"><svg viewBox="0 0 950 744" aria-hidden="true"><image href="./assets/camera.webp" width="950" height="744" filter="url(#build-contour)" /></svg><img src="./assets/camera.webp" width="950" height="744" loading="lazy" alt="" /></button><button class="mech-find f-pin" data-find aria-pressed="false" aria-label="Найти: указатель"><svg viewBox="0 0 695 678" aria-hidden="true"><image href="./assets/pin.webp" width="695" height="678" filter="url(#build-contour)" /></svg><img src="./assets/pin.webp" width="695" height="678" loading="lazy" alt="" /></button></div>
+            </div>
+            <div class="mech-controls" data-for="city" role="group" aria-label="Масштаб объекта"><button data-step="0" aria-pressed="true">3 метра</button><button data-step="1" aria-pressed="false">6 метров</button><button data-step="2" aria-pressed="false">Высота дома</button></div>
+            <div class="mech-controls" data-for="pack" role="group" aria-label="Этап сцены" hidden><button data-step="0" aria-pressed="true">Упаковка</button><button data-step="1" aria-pressed="false">Камера</button><button data-step="2" aria-pressed="false">Сцена</button></div>
+            <div class="mech-controls" data-for="game" hidden><span class="mech-count" role="status">Найдено 0 из 3</span><button class="mech-reset" disabled>Заново</button></div>
+            <p class="mech-note" data-for="city">Схема масштаба. Реальное размещение зависит от локации.</p>
+            <p class="mech-note" data-for="pack" hidden>Сцену запускает изображение на упаковке.</p>
+            <p class="mech-note" data-for="game" hidden>Нажмите на предметы, чтобы найти их.</p>
           </div>
         </div>
       </section>

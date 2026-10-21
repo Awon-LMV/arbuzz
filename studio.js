@@ -94,3 +94,58 @@ export function setupStudio() {
   stage.addEventListener('pointerleave', resetTilt);
   return {setPaused(value) { paused = value; resetTilt(); if (value) { current = target; paint(current); } }};
 }
+
+export function setupMechanics() {
+  const layout = document.querySelector('.mech-layout');
+  if (!layout) return;
+  const stage = layout.querySelector('.mech-stage');
+  const panel = layout.querySelector('.mech-view');
+  const tabs = [...layout.querySelectorAll('[data-mech]')];
+  const parts = [...layout.querySelectorAll('[data-for]')];
+  const finds = [...layout.querySelectorAll('[data-find]')];
+  const count = layout.querySelector('.mech-count');
+  const reset = layout.querySelector('.mech-reset');
+  const measure = layout.querySelector('[data-measure]');
+  const metres = ['3 м', '6 м', '10 м'];
+
+  function setStep(value) {
+    stage.dataset.step = value;
+    measure.textContent = metres[value];
+    layout.querySelectorAll('.mech-controls [data-step]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.step === String(value))));
+  }
+
+  function select(tab, focus) {
+    const scene = tab.dataset.mech;
+    layout.dataset.scene = scene;
+    panel.setAttribute('aria-labelledby', tab.id);
+    tabs.forEach(item => {
+      const active = item === tab;
+      item.setAttribute('aria-selected', String(active));
+      item.tabIndex = active ? 0 : -1;
+    });
+    parts.forEach(part => { part.hidden = part.dataset.for !== scene; });
+    setStep(0);
+    if (focus) tab.focus();
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => select(tab));
+    tab.addEventListener('keydown', event => {
+      const shift = {ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1}[event.key];
+      if (!shift) return;
+      event.preventDefault();
+      select(tabs[(index + shift + tabs.length) % tabs.length], true);
+    });
+  });
+
+  layout.querySelectorAll('.mech-controls [data-step]').forEach(button => button.addEventListener('click', () => setStep(Number(button.dataset.step))));
+
+  function updateFound() {
+    const found = finds.filter(item => item.getAttribute('aria-pressed') === 'true').length;
+    stage.style.setProperty('--found', found);
+    count.textContent = found === finds.length ? 'Коллекция собрана' : `Найдено ${found} из ${finds.length}`;
+    reset.disabled = found === 0;
+  }
+  finds.forEach(item => item.addEventListener('click', () => { item.setAttribute('aria-pressed', 'true'); updateFound(); }));
+  reset.addEventListener('click', () => { finds.forEach(item => item.setAttribute('aria-pressed', 'false')); updateFound(); });
+}

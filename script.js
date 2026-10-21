@@ -1,10 +1,11 @@
 import { spatialField } from "./scene.js";
-import { setupStudio } from "./studio.js";
+import { setupStudio, setupMechanics } from "./studio.js";
 const $ = (s) => document.querySelector(s),
   $$ = (s) => [...document.querySelectorAll(s)];
 const reduced = matchMedia("(prefers-reduced-motion: reduce)");
 const field = spatialField($("#spatial-grid"));
 const studio = setupStudio();
+setupMechanics();
 let paused = reduced.matches;
 function setMotion(value) {
   paused = value;

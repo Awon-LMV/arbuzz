@@ -103,3 +103,85 @@
   .offer-list { margin-top: 35px; }
   .offer-card p { font-size: 14px; }
 }
+
+/* Mechanics: line-drawn scenes, the coloured object is the AR layer. Stage units follow the 600×380 drawing. */
+@property --mfill { syntax: "<number>"; inherits: true; initial-value: 0; }
+.mech { padding-block: 80px 75px; border-bottom: 1px solid #d5d0c5; color: #252329; }
+.mech-heading { display: grid; grid-template-columns: 1fr 1fr; gap: 10%; align-items: end; }
+.mech h2 { font-size: clamp(38px, 4.3vw, 66px); }
+.mech-heading > p { color: #66615b; font-size: 15px; line-height: 1.7; max-width: 380px; }
+.mech-layout { display: grid; grid-template-columns: minmax(240px, 30%) 1fr; gap: 7%; margin-top: 55px; align-items: start; }
+.mech-tabs { display: flex; flex-direction: column; }
+.mech-tabs button { position: relative; min-height: 48px; text-align: left; font-size: 15px; color: #757068; border-bottom: 1px solid #cec9bf; transition: color .25s; }
+.mech-tabs button::after { content: ""; position: absolute; left: 0; bottom: -1px; height: 1px; width: 100%; background: #6d31cd; transform: scaleX(0); transform-origin: left; transition: transform .5s cubic-bezier(.16,1,.3,1); }
+.mech-tabs button[aria-selected="true"] { color: #252329; }
+.mech-tabs button[aria-selected="true"]::after { transform: none; }
+.mech-tabs button:hover { color: #252329; }
+.mech-copy { margin-top: 34px; animation: mech-in .5s cubic-bezier(.16,1,.3,1); }
+.mech-copy h3 { font-size: clamp(23px, 2.1vw, 30px); line-height: 1.2; letter-spacing: -.03em; }
+.mech-copy p { color: #66615b; font-size: 15px; line-height: 1.75; margin-top: 14px; }
+.mech-cta { min-height: 44px; margin-top: 18px; font-size: 14px; color: #252329; border-bottom: 1px solid #6d31cd; }
+.mech-stage { position: relative; aspect-ratio: 600 / 380; }
+.mech-lines { position: absolute; inset: 0; width: 100%; height: 100%; fill: none; stroke: #5b5364; stroke-width: 1; overflow: visible; }
+.mech-lines * { vector-effect: non-scaling-stroke; }
+.mech-scene { opacity: 0; transition: opacity .5s; }
+[data-scene="city"] .scene-city, [data-scene="pack"] .scene-pack, [data-scene="game"] .scene-game { opacity: 1; }
+.mech-scale, .mech-rise, .mech-finds { position: absolute; opacity: 0; visibility: hidden; transition: opacity .5s, visibility 0s .5s; }
+[data-scene="city"] .mech-scale, [data-scene="pack"] .mech-rise, [data-scene="game"] .mech-finds { opacity: 1; visibility: visible; transition: opacity .5s; }
+/* City: object height in metres, 1 m = 26 units. */
+.mech-scale { --h: 20.5%; left: 42%; bottom: 13.16%; height: var(--h); translate: -50% 0; transition: opacity .5s, visibility 0s .5s, height .9s cubic-bezier(.16,1,.3,1); }
+[data-scene="city"] .mech-scale { transition: opacity .5s, height .9s cubic-bezier(.16,1,.3,1); }
+[data-step="1"] .mech-scale { --h: 41%; }
+[data-step="2"] .mech-scale { --h: 68.4%; }
+.mech-scale img { display: block; height: 100%; width: auto; }
+.mech-measure { position: absolute; top: 0; bottom: 0; left: -24px; width: 7px; border-block: 1px solid #6d31cd; }
+.mech-measure i { position: absolute; left: 3px; top: 0; bottom: 0; width: 1px; background: #6d31cd; }
+.mech-measure b { position: absolute; right: 14px; top: 50%; translate: 0 -50%; font-size: 12px; font-weight: 400; color: #6d31cd; white-space: nowrap; }
+/* Packaging: brackets find the label, then the object rises from the box. */
+.mech-brackets { stroke: #6d31cd; opacity: 0; transform-box: fill-box; transform-origin: center; transform: scale(1.25); transition: opacity .4s, transform .6s cubic-bezier(.16,1,.3,1); }
+[data-step="1"] .mech-brackets, [data-step="2"] .mech-brackets { opacity: 1; transform: none; }
+.mech-rise { left: 50%; bottom: 34.2%; width: 30%; height: 50%; translate: -50% 0; overflow: hidden; }
+.mech-rise img { display: block; height: 100%; width: auto; margin-inline: auto; transform: translateY(102%); transition: transform 1s cubic-bezier(.16,1,.3,1); }
+[data-scene="pack"] [data-step="2"] .mech-rise img { transform: none; }
+/* Game: sketches until found, then the same contour-to-colour fill as the process. */
+.mech-route { stroke-dasharray: 3 6; }
+.mech-route-live { stroke: #6d31cd; stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--found, 0) / 3); transition: stroke-dashoffset .8s cubic-bezier(.16,1,.3,1); }
+.mech-finds { inset: 0; }
+.mech-find { position: absolute; bottom: 15%; --mfill: 0; transition: --mfill .9s cubic-bezier(.2,.7,.2,1), translate .4s; }
+.mech-find:hover { translate: 0 -4px; }
+.mech-find[aria-pressed="true"] { --mfill: 1; }
+.mech-find svg, .mech-find img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.mech-find img { mask-image: linear-gradient(to top, #000 calc(var(--mfill) * 108% - 8%), transparent calc(var(--mfill) * 108%)); }
+.mech-find svg { opacity: calc(1 - var(--mfill) * .9); }
+.f-cup { left: 11%; height: 40%; aspect-ratio: 629 / 876; }
+.f-cam { left: 39%; height: 30%; aspect-ratio: 950 / 744; bottom: 16%; }
+.f-pin { left: 70%; height: 33%; aspect-ratio: 695 / 678; }
+.mech-controls { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 18px; border-top: 1px solid #cec9bf; }
+.mech-controls button { min-height: 44px; font-size: 13px; color: #757068; transition: color .25s; }
+.mech-controls button:first-child { text-align: left; }
+.mech-controls button:last-child { text-align: right; }
+.mech-controls button[aria-pressed="true"] { color: #252329; box-shadow: inset 0 1px #6d31cd; }
+.mech-controls[data-for="game"] { display: flex; justify-content: space-between; align-items: center; min-height: 45px; font-size: 13px; }
+.mech-controls[data-for="game"][hidden], .mech-controls[hidden] { display: none; }
+.mech-count { color: #252329; }
+.mech-reset:disabled { color: #b3ada4; }
+.mech-note { margin-top: 10px; font-size: 12px; color: #8a847b; }
+.mech + .process { padding-top: 60px; }
+@keyframes mech-in { from { opacity: 0; translate: 0 8px; } }
+.motion-paused .mech *, .motion-paused .mech-copy { transition: none !important; animation: none !important; }
+@media (max-width:800px) {
+  .mech-layout { grid-template-columns: 1fr; gap: 30px; }
+  .mech-tabs { flex-direction: row; }
+  .mech-tabs button { flex: 1; text-align: center; font-size: 14px; }
+  .mech-copy { margin-top: 24px; }
+}
+@media (max-width:560px) {
+  .mech { padding-block: 50px 50px; }
+  .mech-heading { display: block; }
+  .mech h2 { font-size: clamp(35px,10vw,50px); }
+  .mech-heading > p { margin-top: 16px; font-size: 14px; }
+  .mech-layout { margin-top: 30px; }
+  .mech-copy p { font-size: 14px; }
+  .mech-measure b { font-size: 11px; right: 11px; }
+}
+@media (prefers-reduced-motion:reduce) { .mech * { transition: none !important; animation: none !important; } }
